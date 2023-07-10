@@ -1,15 +1,12 @@
-import React from 'react';
-import logo from './images/NextUpLogo.png';
+import logo from './images/NextUpLogo.png'; 
 import './App.css';
-
-import LoginButton from './routes/LoginButton';
+import React from 'react';
 
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
-        <LoginButton />
       </header>
     </div>
   );
