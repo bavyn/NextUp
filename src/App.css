@@ -5,7 +5,7 @@
 .App-logo {
   height: 10vmin;
   pointer-events: none;
-  left:0;
+  left: 0;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
@@ -15,7 +15,7 @@
 } */
 
 .App-header {
-  background-color:white;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,6 +27,16 @@
   margin-top: 0.5em;
 }
 
+.app-description h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+.app-description p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  font-weight: 300;
+}
 
 /*
 .App-link {
