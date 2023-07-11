@@ -5,7 +5,9 @@ import SideMenu from '../components/SideMenu';
 const HostPage = () => {
   return (
     <div className='host-page'>
-      <h1 className='host-page-header'>Host Page</h1>
+      <header className='host-page-header'>
+        <h1>Host Page</h1>
+      </header>
       <SideMenu />
     </div>
   );
