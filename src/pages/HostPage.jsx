@@ -1,9 +1,12 @@
 import React from 'react';
+import '../styles/HostPage.css';
+import SideMenu from '../components/SideMenu';
 
 const HostPage = () => {
   return (
-    <div>
-      <h1>Host Page</h1>
+    <div className='host-page'>
+      <h1 className='host-page-header'>Host Page</h1>
+      <SideMenu />
     </div>
   );
 };
