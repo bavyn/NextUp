@@ -6,7 +6,7 @@ const LoginButton = () => {
   return (
     <div>
       <a href='http://localhost:3000/login'>
-        <Button variant='contained'>Login</Button>
+        <Button variant='contained'>Create a Party!</Button>
       </a>
     </div>
   );
