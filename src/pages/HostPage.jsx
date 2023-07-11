@@ -20,7 +20,7 @@ const HostPage = () => {
         };
 
         fetchPlaylist();
-    }, [userId]);
+    }, []);
 
     return (
         <div className='host-page'>
@@ -31,7 +31,7 @@ const HostPage = () => {
 
             <section>
                 <h2>Your Playlist</h2>
-                {playlist.map((item) => {
+                {playlist && playlist.map((item) => {
                     const track = item?.Track;
                     const artist = track?.Artist?.name;
                     const album = track?.Album?.name;

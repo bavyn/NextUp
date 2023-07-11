@@ -1,18 +1,37 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import './App.css';
 import TopNavBar from './components/TopNavBar';
 
+
+const sayings = [
+  'Unite through Music',
+  'Create Memorable Moments',
+  'A Playlist for You and Your Friends',
+  'Elevate Your Party Experience',
+];
+
 function App() {
+  const [sayingIndex, setSayingIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSayingIndex((prevIndex) => (prevIndex + 1) % sayings.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <div className='App'>
       <TopNavBar />
-      <div className='about-us-header'>
+      <div className='name-header'>
         <header>
           <h1>NextUp</h1>
         </header>
-        <section>
+        <section className='app-description'>
           <h2>Your Melody. Your World</h2>
-          <p>Unite through Music, Create Memorable Moments</p>
+          <p>{sayings[sayingIndex]}</p>
         </section>
 
         <footer>

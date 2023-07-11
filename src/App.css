@@ -27,6 +27,17 @@
   margin-top: 0.5em;
 }
 
+.app-description h2 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+.app-description p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+  font-weight: 300;
+}
+
 /*
 .App-link {
   color: #61dafb;
