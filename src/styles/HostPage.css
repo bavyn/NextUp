@@ -1,0 +1,9 @@
+.host-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.host-page-header {
+  text-align: center;
+  background-color: cadetblue;
+}
