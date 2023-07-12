@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, white, #b3d8ff);
+  font-family: 'Abril Fatface', serif;
 }
 
 .App-logo {
@@ -27,27 +32,34 @@
   margin-top: 0.5em;
 }
 
+.footer {
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.name-header {
+  margin-top: 10em;
+}
+
+.next-up-header {
+  font-size: 48px;
+}
+
 .app-description h2 {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: large;
+  font-size: x-large;
+  margin-top: -0.5em;
 }
 
 .app-description p {
-  font-family: 'Times New Roman', Times, serif;
-  font-size: large;
+  font-size: x-large;
   font-weight: 300;
 }
-
-/*
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

@@ -4,9 +4,16 @@ import Button from '@mui/material/Button';
 
 const LoginButton = () => {
   return (
-    <div className='login-button'>
+    <div className='login-button-container'>
       <a href='https://api.nextup.rocks/login'>
-        <Button variant='contained'>Create a Party!</Button>
+        <Button variant='contained' sx={{
+          backgroundColor: 'black',
+          color: 'white',
+          '&:hover': {
+            backgroundColor: 'white',
+            color: 'black',
+          },
+        }}>Create a Party!</Button>
       </a>
     </div>
   );

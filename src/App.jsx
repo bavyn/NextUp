@@ -23,18 +23,18 @@ function App() {
   return (
     <div className='App'>
       <TopNavBar />
-      <div className='name-header'>
-        <header>
-          <h1>NextUp</h1>
+      <div className='center-content'>
+        <header className='name-header'>
+          <h1 className='next-up-header'>NextUp</h1>
         </header>
         <section className='app-description'>
           <h2>Your Melody. Your World</h2>
           <p>{sayings[sayingIndex]}</p>
         </section>
-        <footer>
-          <p>&copy; 2023 NextUp. All rights reserved.</p>
-        </footer>
       </div>
+      <footer className='footer'>
+        <p>&copy; 2023 NextUp. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

@@ -4,9 +4,23 @@
   align-items: center;
   width: 100%;
   padding: 10px;
-  background-color: cadetblue;
+  justify-content: space-between;
+  /* background-color: cadetblue; */
 }
 
 .logo {
   height: 125px;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin-right: 10em;
 }
