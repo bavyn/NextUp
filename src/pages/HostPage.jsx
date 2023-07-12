@@ -11,7 +11,7 @@ const HostPage = () => {
     const fetchPlaylist = async () => {
       console.log(`Fetching playlist for user ${userId}`);
       try {
-        const response = await fetch(`http://localhost:3000/events/${userId}/playlist`);
+        const response = await fetch(`http://api.nextup.rocks/events/${userId}/playlist`);
         const data = await response.json();
         setPlaylist(data.playlist.queue);
         console.log('playlist data:', data.playlist.queue);
