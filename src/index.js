@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HostPage from './pages/HostPage';
+import UserPage from './pages/UserPage';
 import ErrorPage from './components/ErrorPage';
 
 ReactDOM.render(
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/hosts/:userId' element={<HostPage />} />
+        <Route path='/event/:userId' element={<UserPage />} />
         <Route path='*' element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>
