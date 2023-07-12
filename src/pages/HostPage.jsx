@@ -6,6 +6,7 @@ import { List, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/mater
 import DeleteIcon from '@mui/icons-material/Delete';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+import QRCodeDisplay from '../components/QRCodeDisplay';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -70,6 +71,8 @@ const HostPage = () => {
               );
             })}
         </List>
+
+        <QRCodeDisplay value={`https://nextup.rocks/event/${userId}`} />
       </section>
     </div>
   );
