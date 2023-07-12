@@ -2,7 +2,10 @@ import { React, useEffect, useState } from 'react';
 import '../styles/HostPage.css';
 // import SideMenu from '../components/SideMenu';
 import { useParams } from 'react-router-dom';
-import { List, ListItem, ListItemText } from '@mui/material';
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -44,6 +47,13 @@ const HostPage = () => {
                     primary={track?.name || 'Unknown Track'}
                     secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
                   />
+                  <ListItemAvatar>
+                    <Avatar>
+                      <PlayCircleIcon />
+                      <PauseCircleIcon />
+                      <DeleteIcon />
+                    </Avatar>
+                  </ListItemAvatar>
                 </ListItem>
               );
             })}
@@ -54,12 +64,3 @@ const HostPage = () => {
 };
 
 export default HostPage;
-
-{
-  /* <div key={item.id}>
-<h3>{track?.name || 'Unknown Track'}</h3>
-<p>
-  {artist || 'Unknown Artist'} - {album || 'Unknown Album'}
-</p>
-</div> */
-}
