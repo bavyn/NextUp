@@ -3,6 +3,7 @@ import '../styles/HostPage.css';
 // import SideMenu from '../components/SideMenu';
 import { useParams } from 'react-router-dom';
 import { List, ListItem, ListItemText } from '@mui/material';
+import QRCodeDisplay from '../components/QRCodeDisplay';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -48,6 +49,8 @@ const HostPage = () => {
               );
             })}
         </List>
+
+        <QRCodeDisplay value={`https://nextup.rocks/event/${userId}`} />
       </section>
     </div>
   );

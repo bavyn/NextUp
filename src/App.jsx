@@ -2,7 +2,6 @@ import { React, useState, useEffect } from 'react';
 import './App.css';
 import TopNavBar from './components/TopNavBar';
 
-
 const sayings = [
   'Unite through Music',
   'Create Memorable Moments',
@@ -21,7 +20,6 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-
   return (
     <div className='App'>
       <TopNavBar />
@@ -33,12 +31,10 @@ function App() {
           <h2>Your Melody. Your World</h2>
           <p>{sayings[sayingIndex]}</p>
         </section>
-
         <footer>
           <p>&copy; 2023 NextUp. All rights reserved.</p>
         </footer>
       </div>
-
     </div>
   );
 }
