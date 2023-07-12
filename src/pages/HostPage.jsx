@@ -3,18 +3,21 @@ import axios from 'axios';
 import '../styles/HostPage.css';
 // import SideMenu from '../components/SideMenu';
 import { useParams } from 'react-router-dom';
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 // import QRCodeDisplay from '../components/QRCodeDisplay';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
+import Lottie from 'lottie-react';
+import musicAnimation from '../lotties/music.json';
 
 const HostPage = () => {
     const { userId } = useParams();
     const [playlist, setPlaylist] = useState([]);
     const [nowPlaying, setNowPlaying] = useState({});
+    const [playing, setPlaying] = useState(false);
     const [playingArtist, setPlayingArtist] = useState('');
     const [playingAlbum, setPlayingAlbum] = useState('');
     const [playColour, setPlayColour] = useState('clicked');
@@ -28,7 +31,12 @@ const HostPage = () => {
                 const { playlist, currentlyPlaying } = response.data;
                 setPlaylist(playlist.queue);
                 setNowPlaying(currentlyPlaying);
+
+                if (!currentlyPlaying.artists) {
+                    setPlaying(false);
+                }
                 if (currentlyPlaying && currentlyPlaying.artists && currentlyPlaying.artists.length > 0) {
+                    setPlaying(true);
                     setPlayingArtist(currentlyPlaying.artists[0].name);
                 }
 
@@ -82,6 +90,15 @@ const HostPage = () => {
         }
     };
 
+    const handlePartyClick = async () => {
+        try {
+            const response = await axios.get(`https://api.nextup.rocks/events/${userId}/start`);
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error occurred:', error);
+        }
+    };
+
     const handleQRCodeModalClose = () => {
         setQRCodeModalOpen(false);
     };
@@ -100,7 +117,20 @@ const HostPage = () => {
                 userId={userId}
             />
             <section className='host-page-playlist'>
-                <h2> Now Playing </h2>
+                <Button variant='contained' onClick={handlePartyClick}>
+                    Start the party
+                </Button>
+                <h2 style={{ display: 'flex', alignItems: 'center' }}>
+                    Now Playing
+                    <div style={{ marginLeft: '10px' }}>
+                        <Lottie
+                            animationData={musicAnimation}
+                            style={{ width: '35px', height: '35px' }} // You forgot to mention the height
+                            setSpeed={playing ? 0 : 20}
+                        />
+                    </div>
+                </h2>
+
                 <div className='host-page-song-details'>
                     <ListItemText
                         primary={nowPlaying?.name || 'Unknown Track'}

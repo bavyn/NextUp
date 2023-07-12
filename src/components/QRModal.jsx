@@ -5,12 +5,23 @@ import '../styles/QRModal.css';
 import QRCodeDisplay from './QRCodeDisplay';
 import CopyToClipboardButton from './CopyToClipboardButton';
 
-const QRCodeModal = ({ open, onClose, value, userId }) => {
+const QRCodeModal = ({ open, onClose, userId }) => {
   const handleClose = () => {
     onClose();
   };
 
   const userPageLink = `https://nextup.rocks/event/${userId}`;
+
+  const downloadQR = () => {
+    const canvas = document.getElementById('qrcode-canvas');
+    const pngUrl = canvas.toDataURL('image/png');
+    const downloadLink = document.createElement('a');
+    downloadLink.href = pngUrl;
+    downloadLink.download = 'nextup_qr_code.png';
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+  };
 
   return (
     <div className='qrcode-modal'>
@@ -21,11 +32,12 @@ const QRCodeModal = ({ open, onClose, value, userId }) => {
         <div className='qrcode-modal-copy-button'>
           <CopyToClipboardButton link={userPageLink} />
         </div>
-        <div className='qrcode-modal-share-qrcode'>
+        {/* <div className='qrcode-modal-share-qrcode-link'>
           <p>Click here to share your QR code</p>
-        </div>
-        <DialogContent>
-          <QRCodeDisplay value={value} />
+        </div> */}
+        <DialogContent className='qrcode-modal-share-qrcode'>
+          <Button onClick={downloadQR}>Download QR Code</Button>
+          <QRCodeDisplay value={userPageLink} canvasId='qrcode-canvas' />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Close</Button>
@@ -38,7 +50,6 @@ const QRCodeModal = ({ open, onClose, value, userId }) => {
 QRCodeModal.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
 };
 
