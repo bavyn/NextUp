@@ -9,7 +9,7 @@ const ErrorPage = () => {
         <h1>Oops!</h1>
         <h2>Error: 404</h2>
         <p>The link you followed may be broken or the page may have been removed.</p>
-        <GoHomeButton text={'Navigate to the home page'} />
+        <GoHomeButton />
       </section>
     </div>
   );

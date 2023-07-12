@@ -6,7 +6,7 @@ const GoHomeButton = () => {
   return (
     <div className='go-home-button'>
       <Link to={'/'}>
-        <Button variant='contained'>go home</Button>
+        <Button variant='contained'>Home</Button>
       </Link>
     </div>
   );
