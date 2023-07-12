@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const GoHomeButton = (props) => {
   return (
-    <div>
+    <div class='go-home-button'>
       <Link to={'/'}>
         <Button variant='contained'>{props.text}</Button>
       </Link>
