@@ -2,7 +2,11 @@ import { React, useEffect, useState } from 'react';
 import '../styles/HostPage.css';
 // import SideMenu from '../components/SideMenu';
 import { useParams } from 'react-router-dom';
-import { List, ListItem, ListItemText } from '@mui/material';
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+import QRCodeDisplay from '../components/QRCodeDisplay';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -39,27 +43,39 @@ const HostPage = () => {
               const artist = track?.Artist?.name;
               const album = track?.Album?.name;
               return (
-                <ListItem key={item.id}>
-                  <ListItemText
-                    primary={track?.name || 'Unknown Track'}
-                    secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
-                  />
+                <ListItem key={item.id} className='host-page-song-item'>
+                  <div className='host-page-song-details'>
+                    <ListItemText
+                      primary={track?.name || 'Unknown Track'}
+                      secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
+                    />
+                  </div>
+                  <div className='host-page-avatars'>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <PlayCircleIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <PauseCircleIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <DeleteIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                  </div>
                 </ListItem>
               );
             })}
         </List>
+
+        <QRCodeDisplay value={`https://nextup.rocks/event/${userId}`} />
       </section>
     </div>
   );
 };
 
 export default HostPage;
-
-{
-  /* <div key={item.id}>
-<h3>{track?.name || 'Unknown Track'}</h3>
-<p>
-  {artist || 'Unknown Artist'} - {album || 'Unknown Album'}
-</p>
-</div> */
-}
