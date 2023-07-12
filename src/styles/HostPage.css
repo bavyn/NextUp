@@ -14,3 +14,18 @@
   align-items: center;
   justify-content: center;
 }
+
+.host-page-song-item {
+  display: flex;
+  align-items: center;
+}
+
+.host-page-song-details {
+  padding-right: 20px;
+  flex: 1;
+}
+
+.host-page-avatars {
+  display: flex;
+  justify-content: flex-end;
+}
