@@ -42,18 +42,30 @@ const HostPage = () => {
               const artist = track?.Artist?.name;
               const album = track?.Album?.name;
               return (
-                <ListItem key={item.id}>
-                  <ListItemText
-                    primary={track?.name || 'Unknown Track'}
-                    secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
-                  />
-                  <ListItemAvatar>
-                    <Avatar>
-                      <PlayCircleIcon />
-                      <PauseCircleIcon />
-                      <DeleteIcon />
-                    </Avatar>
-                  </ListItemAvatar>
+                <ListItem key={item.id} className='host-page-song-item'>
+                  <div className='host-page-song-details'>
+                    <ListItemText
+                      primary={track?.name || 'Unknown Track'}
+                      secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
+                    />
+                  </div>
+                  <div className='host-page-avatars'>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <PlayCircleIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <PauseCircleIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <DeleteIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                  </div>
                 </ListItem>
               );
             })}
