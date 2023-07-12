@@ -1,11 +1,13 @@
 .host-page {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, white, #b3d8ff);
+  font-family: 'Abril Fatface', serif;
 }
 
 .host-page-header {
   text-align: center;
-  background-color: cadetblue;
 }
 
 .host-page-playlist {
@@ -28,4 +30,8 @@
 .host-page-avatars {
   display: flex;
   justify-content: flex-end;
+}
+
+.host-page-header h1 {
+  margin-top: -1em;
 }
