@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const QRCodeDisplay = ({ value }) => {
   return (
-    <Box display='flex' justifyContent='center' alignItems='center'>
+    <Box display='flex' justifyContent='center' alignItems='center' fontFamily='Abril Fatface, serif'>
       <Card elevation={3}>
         <CardContent>
           <Typography variant='h6' align='center'>
