@@ -17,8 +17,8 @@ const HostPage = () => {
   const [nowPlaying, setNowPlaying] = useState({});
   const [playingArtist, setPlayingArtist] = useState('');
   const [playingAlbum, setPlayingAlbum] = useState('');
-  const [playColour, setPlayColour] = useState('white');
-  const [pauseColour, setPauseColour] = useState('white');
+  const [playColour, setPlayColour] = useState('clicked');
+  const [pauseColour, setPauseColour] = useState('');
   const [qrcodeModalOpen, setQRCodeModalOpen] = useState(false);
 
   useEffect(() => {
@@ -52,8 +52,8 @@ const HostPage = () => {
     try {
       const response = await axios.get(`https://api.nextup.rocks/events/${userId}/resume`);
       console.log(response.data);
-      setPlayColour('success');
-      setPauseColour('white');
+      setPlayColour('clicked');
+      setPauseColour('');
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -63,8 +63,8 @@ const HostPage = () => {
     try {
       const response = await axios.get(`https://api.nextup.rocks/events/${userId}/pause`);
       console.log(response.data);
-      setPauseColour('success');
-      setPlayColour('white');
+      setPauseColour('clicked');
+      setPlayColour('');
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -96,13 +96,13 @@ const HostPage = () => {
         </div>
         <div className='host-page-avatars'>
           <ListItemAvatar>
-            <Avatar>
-              <PlayCircleIcon onClick={handlePlayClick} style={{ color: playColour }} />
+            <Avatar className={playColour === 'clicked' ? 'playing' : ''}>
+              <PlayCircleIcon onClick={handlePlayClick} />
             </Avatar>
           </ListItemAvatar>
           <ListItemAvatar>
-            <Avatar>
-              <PauseCircleIcon onClick={handlePauseClick} style={{ color: pauseColour }} />
+            <Avatar className={pauseColour === 'clicked' ? 'paused' : ''}>
+              <PauseCircleIcon onClick={handlePauseClick} />
             </Avatar>
           </ListItemAvatar>
         </div>
