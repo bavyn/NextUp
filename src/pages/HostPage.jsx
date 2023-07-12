@@ -15,6 +15,8 @@ const HostPage = () => {
   const [nowPlaying, setNowPlaying] = useState({});
   const [playingArtist, setPlayingArtist] = useState('');
   const [playingAlbum, setPlayingAlbum] = useState('');
+  const [playColour, setPlayColour] = useState('white');
+  const [pauseColour, setPauseColour] = useState('white');
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -47,6 +49,8 @@ const HostPage = () => {
     try {
       const response = await axios.get(`https://api.nextup.rocks/events/${userId}/resume`);
       console.log(response.data);
+      setPlayColour('success');
+      setPauseColour('gray');
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -56,6 +60,8 @@ const HostPage = () => {
     try {
       const response = await axios.get(`https://api.nextup.rocks/events/${userId}/pause`);
       console.log(response.data);
+      setPauseColour('success');
+      setPlayColour('gray');
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -79,12 +85,12 @@ const HostPage = () => {
         <div className='host-page-avatars'>
           <ListItemAvatar>
             <Avatar>
-              <PlayCircleIcon onClick={handlePlayClick} />
+              <PlayCircleIcon onClick={handlePlayClick} style={{ color: playColour }} />
             </Avatar>
           </ListItemAvatar>
           <ListItemAvatar>
             <Avatar>
-              <PauseCircleIcon onClick={handlePauseClick} />
+              <PauseCircleIcon onClick={handlePauseClick} style={{ color: pauseColour }} />
             </Avatar>
           </ListItemAvatar>
         </div>
