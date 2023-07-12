@@ -2,11 +2,11 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
-const GoHomeButton = (props) => {
+const GoHomeButton = () => {
   return (
-    <div class='go-home-button'>
+    <div className='go-home-button'>
       <Link to={'/'}>
-        <Button variant='contained'>{props.text}</Button>
+        <Button variant='contained'>go home</Button>
       </Link>
     </div>
   );
