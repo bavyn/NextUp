@@ -45,7 +45,7 @@ const HostPage = () => {
 
   const handlePlayClick = async () => {
     try {
-      const response = await axios.get(`http://api.nextup.rocks/events/${userId}/resume`);
+      const response = await axios.get(`https://api.nextup.rocks/events/${userId}/resume`);
       console.log(response.data);
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
@@ -54,7 +54,7 @@ const HostPage = () => {
 
   const handlePauseClick = async () => {
     try {
-      const response = await axios.get(`http://api.nextup.rocks/events/${userId}/pause`);
+      const response = await axios.get(`https://api.nextup.rocks/events/${userId}/pause`);
       console.log(response.data);
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
