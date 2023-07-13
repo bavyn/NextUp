@@ -21,6 +21,9 @@ const UserPage = () => {
           <SearchBar onSearch={handleSearch} />
         </div>
       </div>
+      <footer className='footer'>
+        <p>&copy; 2023 NextUp. All rights reserved.</p>
+      </footer>
     </div>
   );
 };
