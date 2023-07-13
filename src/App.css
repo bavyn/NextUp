@@ -65,21 +65,14 @@
 }
 
 @media (max-width: 768px) {
-  .name-header {
-    margin-top: 5em;
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5x;
   }
 
-  .next-up-header {
-    font-size: 36px;
-  }
-
-  .app-description h2 {
-    font-size: large;
-    margin-top: -0.3em;
-  }
-
-  .app-description p {
-    font-size: large;
-    font-weight: 300;
+  .nav-items img {
+    width: 80px;
+    height: 80px;
   }
 }
