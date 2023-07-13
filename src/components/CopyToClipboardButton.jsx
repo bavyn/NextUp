@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Snackbar } from '@mui/material';
+import { Button } from '@mui/material';
+import SnackbarMessage from './SnackbarMessage';
 
 const CopyToClipboardButton = ({ link }) => {
   const [open, setOpen] = useState(false);
@@ -9,15 +10,14 @@ const CopyToClipboardButton = ({ link }) => {
     navigator.clipboard.writeText(link);
   };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Button onClick={handleClick}>Copy link to Clipboard</Button>
-      <Snackbar
-        open={open}
-        onClose={() => setOpen(false)}
-        autoHideDuration={2000}
-        message='Copied to clipboard'
-      />
+      <SnackbarMessage open={open} onClose={handleClose} message='Copied to clipboard' />
     </div>
   );
 };

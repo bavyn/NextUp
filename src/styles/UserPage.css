@@ -1,0 +1,23 @@
+.user-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, white, #b3d8ff);
+  font-family: 'Abril Fatface', serif;
+}
+
+.user-page-header {
+  text-align: center;
+}
+
+.user-page-body {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.user-page-search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
