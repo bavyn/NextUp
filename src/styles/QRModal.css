@@ -1,3 +1,19 @@
-qrcode-modal {
+.qrcode-modal {
   font-family: 'Abril Fatface', serif;
+}
+
+.qrcode-modal-header {
+  text-align: center;
+  font-family: 'Abril Fatface, serif';
+  margin: 0;
+}
+
+.qrcode-modal-copy-button {
+  display: flex;
+  justify-content: center;
+}
+
+.qrcode-modal-share-qrcode {
+  display: flex;
+  justify-content: center;
 }
