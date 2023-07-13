@@ -1,9 +1,17 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import '../styles/HostPage.css';
 // import SideMenu from '../components/SideMenu';
 import { useParams } from 'react-router-dom';
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Button } from '@mui/material';
+import {
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar,
+  Avatar,
+  Button,
+  TextField,
+} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
@@ -23,6 +31,41 @@ const HostPage = () => {
   const [playColour, setPlayColour] = useState('clicked');
   const [pauseColour, setPauseColour] = useState('');
   const [qrcodeModalOpen, setQRCodeModalOpen] = useState(false);
+  const searchResultsRef = useRef();
+  const [searchInput, setSearchInput] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    if (searchInput.length > 0) {
+      axios
+        .get(`https://api.nextup.rocks/events/${userId}/search/${searchInput}`)
+        .then((res) => {
+          const songs = res.data; // adjust this as needed depending on your API response structure
+          console.log(songs.tracks);
+          setSearchResults(songs.tracks);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchInput]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchResultsRef.current && !searchResultsRef.current.contains(event.target)) {
+        setSearchResults([]);
+      }
+    };
+
+    // Bind the event listener
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [searchResultsRef, setSearchResults]);
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -117,14 +160,50 @@ const HostPage = () => {
         userId={userId}
       />
       <section className='host-page-playlist'>
-        <Button variant='contained' sx={{
-          backgroundColor: 'black',
-          color: 'white',
-          '&:hover': {
-            backgroundColor: 'white',
-            color: 'black',
-          },
-        }} onClick={handlePartyClick}>
+        <div style={{ position: 'relative' }}>
+          <TextField
+            label='Search'
+            variant='outlined'
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            style={{ width: '400px' }}
+          />
+          <div
+            ref={searchResultsRef}
+            style={{
+              position: 'absolute',
+              width: '100%',
+              maxHeight: '200px',
+              overflow: 'auto',
+              backgroundColor: '#fff',
+              zIndex: 1,
+              display: searchInput.length > 0 && searchResults.length > 0 ? 'block' : 'none',
+            }}
+          >
+            <List>
+              {searchResults.map((song) => (
+                <ListItem key={song.id}>
+                  <div>
+                    <div>{song.name}</div>
+                    <div style={{ paddingLeft: '20px' }}>{song.artists[0].name}</div>
+                  </div>
+                </ListItem>
+              ))}
+            </List>
+          </div>
+        </div>
+        <Button
+          variant='contained'
+          sx={{
+            backgroundColor: 'black',
+            color: 'white',
+            '&:hover': {
+              backgroundColor: 'white',
+              color: 'black',
+            },
+          }}
+          onClick={handlePartyClick}
+        >
           Start the party
         </Button>
         <h2 style={{ display: 'flex', alignItems: 'center' }}>
