@@ -141,7 +141,7 @@ const HostPage = () => {
 
   const handleAddSong = async (songId) => {
     try {
-      const response = await axios.post(`https://api.nextup.rocks/events/dmurphysuo/songs`, {
+      const response = await axios.post(`https://api.nextup.rocks/events/${userId}/songs`, {
         songID: songId,
       });
       console.log(response.data);
