@@ -10,7 +10,6 @@ import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 // import QRCodeDisplay from '../components/QRCodeDisplay';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
-import { Link } from 'react-router-dom';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -74,7 +73,7 @@ const HostPage = () => {
   const handleQRCodeModalClose = () => {
     setQRCodeModalOpen(false);
   };
-  console.log('host', userId);
+
   return (
     <div className='host-page'>
       <header className='host-page-header'>
@@ -109,7 +108,6 @@ const HostPage = () => {
           </ListItemAvatar>
         </div>
         <h2>Your Playlist</h2>
-        <Link to={`/event/${userId}`}>TEST LINK TO USER PAGE</Link>
         <List>
           {playlist &&
             playlist.map((item) => {
