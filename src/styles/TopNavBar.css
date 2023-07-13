@@ -1,9 +1,8 @@
-.top-nav-bar {
+.top {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 10px;
   justify-content: space-between;
   /* background-color: cadetblue; */
 }

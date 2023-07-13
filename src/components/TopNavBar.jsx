@@ -17,7 +17,7 @@ const TopNavBar = () => {
   };
 
   return (
-    <nav className='top-nav-bar'>
+    <nav className='top'>
       <div className='nav-items'>
         <img src={logo} className='logo' alt='logo' />
         <LoginButton />
