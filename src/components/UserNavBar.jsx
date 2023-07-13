@@ -18,7 +18,6 @@ const UserNavBar = ({ userId }) => {
       <Lottie
         animationData={partyAnimation}
         style={{ width: '150px', height: '160px', marginLeft: '10px' }} // You forgot to mention the height
-      // setSpeed={playing ? 0 : 20}
       />
     </nav>
   );

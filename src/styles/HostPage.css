@@ -44,6 +44,12 @@
   margin-top: -1em; /*dont use negative*/
 }
 
+.footer {
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+}
+
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   .host-page-header {

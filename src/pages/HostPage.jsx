@@ -182,9 +182,10 @@ const HostPage = () => {
                             );
                         })}
                 </List>
-
-                {/* <QRCodeDisplay value={`https://nextup.rocks/event/${userId}`} /> */}
             </section>
+            <footer className='footer'>
+                <p>&copy; 2023 NextUp. All rights reserved.</p>
+            </footer>
         </div>
     );
 };

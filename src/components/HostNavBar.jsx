@@ -31,6 +31,7 @@ const HostNavBar = ({ userId }) => {
             </div>
             <QRCodeModal open={modalOpen} onClose={handleCloseModal} userId={userId} />
         </nav>
+
     );
 };
 
