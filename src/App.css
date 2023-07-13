@@ -63,3 +63,23 @@
   font-size: x-large;
   font-weight: 300;
 }
+
+@media (max-width: 768px) {
+  .name-header {
+    margin-top: 5em;
+  }
+
+  .next-up-header {
+    font-size: 36px;
+  }
+
+  .app-description h2 {
+    font-size: large;
+    margin-top: -0.3em;
+  }
+
+  .app-description p {
+    font-size: large;
+    font-weight: 300;
+  }
+}
