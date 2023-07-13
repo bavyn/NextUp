@@ -17,12 +17,12 @@ const TopNavBar = () => {
   };
 
   return (
-    <nav className="top-nav-bar">
-      <div className="nav-items">
-        <img src={logo} className="logo" alt="logo" />
+    <nav className='top-nav-bar'>
+      <div className='nav-items'>
+        <img src={logo} className='logo' alt='logo' />
         <LoginButton />
       </div>
-      <div className="center">
+      <div className='center'>
         <InfoIcon onClick={handleInfoIconClick} />
       </div>
       <AboutUsModal open={modalOpen} onClose={handleCloseModal} />
