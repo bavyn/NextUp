@@ -8,6 +8,12 @@
 
 @media (max-width: 768px) {
   .login-button-container {
-    font-size: 10px; /* Adjust the font size as desired */
+    font-size: 0.5rem; /* Adjust the font size as desired */
+    /* padding: 5px 10px; Adjust the padding as desired */
+    margin-top: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16em;
   }
 }
