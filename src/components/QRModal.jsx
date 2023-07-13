@@ -1,33 +1,29 @@
 import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
 import PropTypes from 'prop-types';
+import '../styles/QRModal.css';
 import QRCodeDisplay from './QRCodeDisplay';
-import { Link } from 'react-router-dom';
+import CopyToClipboardButton from './CopyToClipboardButton';
 
 const QRCodeModal = ({ open, onClose, value, userId }) => {
   const handleClose = () => {
     onClose();
   };
 
-  console.log('link: ', userId);
+  const userPageLink = `https://nextup.rocks/event/${userId}`;
 
   return (
     <div className='qrcode-modal'>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle
-          style={{
-            textAlign: 'center',
-            fontWeight: 'bold',
-            fontSize: '24px',
-            fontFamily: 'Abril Fatface, serif',
-          }}
-        >
-          Share with friends to get started!{' '}
+        <DialogTitle>
+          <h4 className='qrcode-modal-header'>Share with friends to get started!</h4>
         </DialogTitle>
-        <DialogContent>
-          Click <Link to={`/event/${userId}`}>here</Link> to share a link with your friends
-        </DialogContent>
-        <DialogContent>Click here to share your QR code with your friends</DialogContent>
+        <div className='qrcode-modal-copy-button'>
+          <CopyToClipboardButton link={userPageLink} />
+        </div>
+        <div className='qrcode-modal-share-qrcode'>
+          <p>Click here to share your QR code</p>
+        </div>
         <DialogContent>
           <QRCodeDisplay value={value} />
         </DialogContent>
