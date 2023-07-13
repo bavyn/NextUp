@@ -73,7 +73,7 @@ const HostPage = () => {
   const handleQRCodeModalClose = () => {
     setQRCodeModalOpen(false);
   };
-  console.log('host', userId);
+
   return (
     <div className='host-page'>
       <header className='host-page-header'>
