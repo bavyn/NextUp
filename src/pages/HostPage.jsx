@@ -70,6 +70,18 @@ const HostPage = () => {
     }
   };
 
+  const handleDeleteClick = async (songId) => {
+    try {
+      const response = await axios.delete(
+        `https://api.nextup.rocks/events/${userId}/songs/${songId}`,
+      );
+      console.log(response.data);
+      // Perform any necessary update to the playlist state
+    } catch (error) {
+      console.error('There has been a problem with your fetch operation:', error);
+    }
+  };
+
   const handleQRCodeModalClose = () => {
     setQRCodeModalOpen(false);
   };
@@ -124,7 +136,7 @@ const HostPage = () => {
                   <div className='host-page-avatars'>
                     <ListItemAvatar>
                       <Avatar>
-                        <DeleteIcon />
+                        <DeleteIcon onClick={() => handleDeleteClick(item.id)} />
                       </Avatar>
                     </ListItemAvatar>
                   </div>
