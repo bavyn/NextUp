@@ -40,7 +40,7 @@ const HostPage = () => {
       axios
         .get(`https://api.nextup.rocks/events/${userId}/search/${searchInput}`)
         .then((res) => {
-          const songs = res.data; // adjust this as needed depending on your API response structure
+          const songs = res.data;
           console.log(songs.tracks);
           setSearchResults(songs.tracks);
         })
@@ -59,10 +59,8 @@ const HostPage = () => {
       }
     };
 
-    // Bind the event listener
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      // Unbind the event listener on clean up
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [searchResultsRef, setSearchResults]);
@@ -127,7 +125,6 @@ const HostPage = () => {
         `https://api.nextup.rocks/events/${userId}/songs/${songId}`,
       );
       console.log(response.data);
-      // Perform any necessary update to the playlist state
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -139,6 +136,17 @@ const HostPage = () => {
       console.log(response.data);
     } catch (error) {
       console.error('Error occurred:', error);
+    }
+  };
+
+  const handleAddSong = async (songId) => {
+    try {
+      const response = await axios.post(`https://api.nextup.rocks/events/dmurphysuo/songs`, {
+        songID: songId,
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error('There has been a problem with your fetch operation:', error);
     }
   };
 
@@ -187,6 +195,11 @@ const HostPage = () => {
                     <div>{song.name}</div>
                     <div style={{ paddingLeft: '20px' }}>{song.artists[0].name}</div>
                   </div>
+                  <div>
+                    <ListItemAvatar>
+                      <PlayCircleIcon onClick={() => handleAddSong(song.id)} />
+                    </ListItemAvatar>
+                  </div>
                 </ListItem>
               ))}
             </List>
@@ -211,7 +224,7 @@ const HostPage = () => {
           <div style={{ marginLeft: '10px' }}>
             <Lottie
               animationData={musicAnimation}
-              style={{ width: '35px', height: '35px' }} // You forgot to mention the height
+              style={{ width: '35px', height: '35px' }}
               setSpeed={playing ? 0 : 20}
             />
           </div>
