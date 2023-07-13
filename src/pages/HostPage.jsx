@@ -117,7 +117,14 @@ const HostPage = () => {
                 userId={userId}
             />
             <section className='host-page-playlist'>
-                <Button variant='contained' onClick={handlePartyClick}>
+                <Button variant='contained' sx={{
+                    backgroundColor: 'black',
+                    color: 'white',
+                    '&:hover': {
+                        backgroundColor: 'white',
+                        color: 'black',
+                    },
+                }} onClick={handlePartyClick}>
                     Start the party
                 </Button>
                 <h2 style={{ display: 'flex', alignItems: 'center' }}>

@@ -1,0 +1,21 @@
+.top-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* max-width: 100%; */
+  overflow: hidden;
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+}
+
+.nav-items h1 {
+  margin: 0;
+  position: absolute;
+  margin-top: 1em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
