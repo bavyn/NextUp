@@ -5,7 +5,7 @@ import '../styles/QRModal.css';
 import QRCodeDisplay from './QRCodeDisplay';
 import CopyToClipboardButton from './CopyToClipboardButton';
 
-const QRCodeModal = ({ open, onClose, value, userId }) => {
+const QRCodeModal = ({ open, onClose, userId }) => {
   const handleClose = () => {
     onClose();
   };
@@ -25,7 +25,7 @@ const QRCodeModal = ({ open, onClose, value, userId }) => {
           <p>Click here to share your QR code</p>
         </div>
         <DialogContent>
-          <QRCodeDisplay value={value} />
+          <QRCodeDisplay value={userPageLink} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Close</Button>
@@ -38,7 +38,6 @@ const QRCodeModal = ({ open, onClose, value, userId }) => {
 QRCodeModal.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
   userId: PropTypes.string.isRequired,
 };
 
