@@ -15,5 +15,6 @@
 
 .qrcode-modal-share-qrcode {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
