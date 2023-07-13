@@ -5,3 +5,9 @@
   margin-top: 3em;
   margin-right: 2em;
 }
+
+@media (max-width: 768px) {
+  .login-button-container {
+    font-size: 10px; /* Adjust the font size as desired */
+  }
+}
