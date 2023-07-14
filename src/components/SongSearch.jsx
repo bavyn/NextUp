@@ -2,7 +2,7 @@ import { React, useRef, useState, useEffect } from 'react';
 import '../styles/UserNavBar.css';
 import PropTypes from 'prop-types';
 import { List, TextField, ListItem, ListItemAvatar } from '@mui/material';
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 import axios from 'axios';
 
@@ -59,7 +59,7 @@ const SongSearch = ({ userId }) => {
         variant='outlined'
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
-        style={{ width: '400px' }}
+        style={{ width: '22em' }}
       />
       <div
         ref={searchResultsRef}
@@ -82,7 +82,7 @@ const SongSearch = ({ userId }) => {
               </div>
               <div>
                 <ListItemAvatar>
-                  <PlayCircleIcon onClick={() => handleAddSong(song.id)} />
+                  <AddCircleIcon onClick={() => handleAddSong(song.id)} />
                 </ListItemAvatar>
               </div>
             </ListItem>
