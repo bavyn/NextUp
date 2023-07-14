@@ -2,7 +2,7 @@ import { React, useRef, useState, useEffect } from 'react';
 import '../styles/UserNavBar.css';
 import PropTypes from 'prop-types';
 import { List, TextField, ListItem, ListItemAvatar } from '@mui/material';
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 import axios from 'axios';
 
@@ -10,6 +10,7 @@ const SongSearch = ({ userId }) => {
   const searchResultsRef = useRef();
   const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [isListVisible, setListVisible] = useState(false);
 
   useEffect(() => {
     if (searchInput.length > 0) {
@@ -19,27 +20,16 @@ const SongSearch = ({ userId }) => {
           const songs = res.data;
           console.log(songs.tracks);
           setSearchResults(songs.tracks);
+          setListVisible(true);
         })
         .catch((err) => {
           console.error(err);
         });
     } else {
       setSearchResults([]);
+      setListVisible(false);
     }
   }, [searchInput]);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchResultsRef.current && !searchResultsRef.current.contains(event.target)) {
-        setSearchResults([]);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [searchResultsRef, setSearchResults]);
 
   const handleAddSong = async (songId) => {
     try {
@@ -55,35 +45,34 @@ const SongSearch = ({ userId }) => {
   return (
     <div style={{ position: 'relative' }}>
       <TextField
-        label='Search'
+        label='Add a song'
         variant='outlined'
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
-        style={{ width: '400px' }}
+        style={{ width: '22em' }}
       />
+
       <div
         ref={searchResultsRef}
         style={{
-          position: 'absolute',
-          width: '100%',
-          maxHeight: '200px',
-          overflow: 'auto',
-          backgroundColor: '#fff',
-          zIndex: 1,
-          display: searchInput.length > 0 && searchResults.length > 0 ? 'block' : 'none',
+          overflowY: 'auto',
+          marginTop: '5px',
+          transition: 'max-height 0.3s ease',
+          maxHeight: isListVisible ? '200px' : '0',
+          width: '22em',
         }}
       >
         <List>
           {searchResults.map((song) => (
             <ListItem key={song.id}>
+              <ListItemAvatar>
+                <AddCircleIcon onClick={() => handleAddSong(song.id)} />
+              </ListItemAvatar>
               <div>
                 <div>{song.name}</div>
-                <div style={{ paddingLeft: '20px' }}>{song.artists[0].name}</div>
-              </div>
-              <div>
-                <ListItemAvatar>
-                  <PlayCircleIcon onClick={() => handleAddSong(song.id)} />
-                </ListItemAvatar>
+                <div style={{ paddingTop: '5px', fontSize: '0.8em', color: 'gray' }}>
+                  {song.artists[0].name}
+                </div>
               </div>
             </ListItem>
           ))}
