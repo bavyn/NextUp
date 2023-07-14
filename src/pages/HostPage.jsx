@@ -130,7 +130,6 @@ const HostPage = () => {
         userId={userId}
       />
       <section className='host-page-content'>
-        <SongSearch userId={userId} />
         <div className='host-page-start-party'>
           <Button
             variant='contained'
@@ -147,6 +146,7 @@ const HostPage = () => {
             Start the party
           </Button>
         </div>
+        <SongSearch userId={userId} />
         <NowPlaying
           nowPlaying={nowPlaying}
           playing={playing}

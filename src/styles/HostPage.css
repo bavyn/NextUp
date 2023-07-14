@@ -32,7 +32,7 @@
 .host-page-start-party {
   display: flex;
   flex-direction: column;
-  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 .footer {
