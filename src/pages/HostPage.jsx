@@ -35,12 +35,12 @@ const HostPage = () => {
         if (!currentlyPlaying.artists) {
           setPlaying(false);
         }
-        if (currentlyPlaying && currentlyPlaying.artists && currentlyPlaying.artists.length > 0) {
+        if (currentlyPlaying && currentlyPlaying.artist) {
           setPlaying(true);
-          setPlayingArtist(currentlyPlaying.artists[0].name);
+          setPlayingArtist(currentlyPlaying.artist.name);
         }
 
-        if (currentlyPlaying && currentlyPlaying.artists && currentlyPlaying.artists.length > 0) {
+        if (currentlyPlaying && currentlyPlaying.album) {
           setPlayingAlbum(currentlyPlaying.album.name);
         }
       } catch (error) {
