@@ -6,6 +6,7 @@ import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Button } from '@m
 import DeleteIcon from '@mui/icons-material/Delete';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+import FastForwardIcon from '@mui/icons-material/FastForward';
 // import QRCodeDisplay from '../components/QRCodeDisplay';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
@@ -73,6 +74,14 @@ const HostPage = () => {
       console.log(response.data);
       setPauseColour('clicked');
       setPlayColour('');
+    } catch (error) {
+      console.error('There has been a problem with your fetch operation:', error);
+    }
+  };
+
+  const handleFFClick = async () => {
+    try {
+      await axios.get(`https://api.nextup.rocks/events/${userId}/next`);
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -157,6 +166,11 @@ const HostPage = () => {
             <ListItemAvatar>
               <Avatar className={pauseColour === 'clicked' ? 'paused' : ''}>
                 <PauseCircleIcon onClick={handlePauseClick} />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemAvatar>
+              <Avatar className={pauseColour === 'clicked' ? 'paused' : ''}>
+                <FastForwardIcon onClick={handleFFClick} />
               </Avatar>
             </ListItemAvatar>
           </div>
