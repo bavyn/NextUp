@@ -17,8 +17,31 @@
 }
 
 .user-page-search-bar {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user-page-song-details {
+  padding-right: 20px;
+  flex: 1;
+}
+
+.now-playing {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.now-playing h2 {
+  margin-bottom: 10px;
+}
+
+.now-playing-content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 

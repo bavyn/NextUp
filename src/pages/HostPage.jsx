@@ -11,6 +11,7 @@ import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
 import Lottie from 'lottie-react';
 import musicAnimation from '../lotties/music.json';
+import SongSearch from '../components/SongSearch';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -83,7 +84,6 @@ const HostPage = () => {
         `https://api.nextup.rocks/events/${userId}/songs/${songId}`,
       );
       console.log(response.data);
-      // Perform any necessary update to the playlist state
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -115,6 +115,8 @@ const HostPage = () => {
         userId={userId}
       />
       <section className='host-page-playlist'>
+        <SongSearch userId={userId} />
+
         <Button
           variant='contained'
           sx={{
@@ -134,7 +136,7 @@ const HostPage = () => {
           <div style={{ marginLeft: '10px' }}>
             <Lottie
               animationData={musicAnimation}
-              style={{ width: '35px', height: '35px' }} // You forgot to mention the height
+              style={{ width: '35px', height: '35px' }}
               setSpeed={playing ? 0 : 20}
             />
           </div>
