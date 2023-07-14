@@ -6,6 +6,7 @@ import FastForwardIcon from '@mui/icons-material/FastForward';
 import Lottie from 'lottie-react';
 import musicAnimation from '../lotties/music.json';
 import PropTypes from 'prop-types';
+import '../styles/NowPlaying.css';
 
 const NowPlaying = ({
   nowPlaying,
@@ -18,7 +19,6 @@ const NowPlaying = ({
   handlePauseClick,
   handleFFClick,
 }) => {
-
   NowPlaying.propTypes = {
     nowPlaying: PropTypes.object.isRequired,
     playing: PropTypes.bool.isRequired,
@@ -32,22 +32,21 @@ const NowPlaying = ({
   };
 
   return (
-    <div className='host-page-now-playing'>
+    <div className='now-playing'>
       <h2>
         Now Playing
-        <div className='host-page-now-playing-animation'>
+        <div className='now-playing-animation'>
           <Lottie animationData={musicAnimation} setSpeed={playing ? 0 : 20} />
         </div>
       </h2>
-      <div className='host-page-song-details'>
+      <div className='now-playing-song-details'>
         <ListItemText
           primary={nowPlaying?.name || 'Unknown Track'}
-          secondary={`${playingArtist || 'Unknown Artist'} - ${playingAlbum || 'Unknown Album'
-            }`}
+          secondary={`${playingArtist || 'Unknown Artist'} - ${playingAlbum || 'Unknown Album'}`}
           style={{ textAlign: 'center' }}
         />
       </div>
-      <div className='host-page-avatars'>
+      <div className='now-playing-avatars'>
         <ListItemAvatar>
           <Avatar className={playColour === 'clicked' ? 'playing' : ''}>
             <PlayCircleIcon onClick={handlePlayClick} />

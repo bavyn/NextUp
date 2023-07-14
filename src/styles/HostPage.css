@@ -22,12 +22,6 @@
   justify-content: center;
 }
 
-.host-page-start-party {
-  display: flex;
-  flex-direction: column;
-  padding-top: 1em;
-}
-
 .host-page-content h2 {
   display: flex;
   align-items: center;
@@ -35,43 +29,10 @@
   margin-bottom: 0.5em;
 }
 
-.host-page-now-playing {
-  padding: 0.5em;
-  padding-bottom: 2em;
-  border: 2px solid #b3d8ff;
-  border-radius: 10px;
-  margin: 1em;
-  width: 45em;
-}
-
-.host-page-now-playing-animation {
-  margin-left: 10px;
-  width: 35px;
-  height: 35px;
-}
-
-.host-page-song-item {
+.host-page-start-party {
   display: flex;
-  align-items: center;
-}
-
-.host-page-song-details {
-  padding: 0 1em;
-  flex: 1;
-}
-
-.host-page-avatars {
-  display: flex;
-  justify-content: center;
-  margin-left: 1em;
-}
-
-.host-page-avatars .MuiAvatar-root.playing {
-  background-color: #00d100;
-}
-
-.host-page-avatars .MuiAvatar-root.paused {
-  background-color: orange;
+  flex-direction: column;
+  padding-top: 1em;
 }
 
 .footer {
@@ -88,23 +49,5 @@
 
   .host-page-content {
     margin-top: 1em;
-  }
-
-  .host-page-now-playing {
-    width: 85%;
-  }
-
-  .host-page-song-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .host-page-song-details {
-    text-align: left;
-    margin-bottom: 0.5em;
-  }
-
-  .host-page-playlist {
-    margin-left: 0;
   }
 }
