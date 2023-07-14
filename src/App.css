@@ -48,7 +48,8 @@
 }
 
 .name-header {
-  margin-top: 10em;
+  margin-top: 8em;
+  /* margin: 0 auto; */
 }
 
 .next-up-header {
