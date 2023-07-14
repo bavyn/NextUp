@@ -64,26 +64,27 @@ const UserPage = () => {
           <SearchBar onSearch={handleSearch} />
         </div>
       </div>
-      <div className='now-playing'>
-        <h2 style={{ display: 'flex', alignItems: 'center' }}>
-          Now Playing
-          <div style={{ marginLeft: '10px' }}>
-            <Lottie
-              animationData={musicAnimation}
-              style={{ width: '35px', height: '35px' }} // You forgot to mention the height
-              setSpeed={playing ? 0 : 20}
+      <div className='now-playing-container'>
+        <div className='now-playing'>
+          <h2 style={{ display: 'flex', alignItems: 'center' }}>
+            Now Playing
+            <div style={{ marginLeft: '10px' }}>
+              <Lottie
+                animationData={musicAnimation}
+                style={{ width: '35px', height: '35px' }} // You forgot to mention the height
+                setSpeed={playing ? 0 : 20}
+              />
+            </div>
+          </h2>
+
+          <div className='user-page-song-details'>
+            <ListItemText
+              primary={nowPlaying?.name || 'Unknown Track'}
+              secondary={`${playingArtist || 'Unknown Artist'} - ${playingAlbum || 'Unknown Album'}`}
             />
+
           </div>
-        </h2>
-
-        <div className='user-page-song-details'>
-          <ListItemText
-            primary={nowPlaying?.name || 'Unknown Track'}
-            secondary={`${playingArtist || 'Unknown Artist'} - ${playingAlbum || 'Unknown Album'}`}
-          />
-
         </div>
-
       </div>
       <footer className='footer'>
         <p>&copy; 2023 NextUp. All rights reserved.</p>

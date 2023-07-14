@@ -15,10 +15,12 @@ const UserNavBar = ({ userId }) => {
         <h1>Welcome to {userId}&rsquo;s party!
         </h1>
       </div>
-      <Lottie
-        animationData={partyAnimation}
-        style={{ width: '150px', height: '160px', marginLeft: '10px' }} // You forgot to mention the height
-      />
+      <div className='user-animation'>
+        <Lottie
+          animationData={partyAnimation}
+          style={{ width: '150px', height: '160px', marginLeft: '10px' }} // You forgot to mention the height
+        />
+      </div>
     </nav>
   );
 };
