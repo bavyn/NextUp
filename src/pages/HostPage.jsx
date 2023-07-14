@@ -18,6 +18,7 @@ const HostPage = () => {
   const [playingAlbum, setPlayingAlbum] = useState('');
   const [playColour, setPlayColour] = useState('clicked');
   const [pauseColour, setPauseColour] = useState('');
+  const [ffColour, setFFColour] = useState('');
   const [qrcodeModalOpen, setQRCodeModalOpen] = useState(false);
 
   useEffect(() => {
@@ -58,6 +59,7 @@ const HostPage = () => {
       console.log(response.data);
       setPlayColour('clicked');
       setPauseColour('');
+      setFFColour('');
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -69,6 +71,7 @@ const HostPage = () => {
       console.log(response.data);
       setPauseColour('clicked');
       setPlayColour('');
+      setFFColour('');
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -77,6 +80,14 @@ const HostPage = () => {
   const handleFFClick = async () => {
     try {
       await axios.get(`https://api.nextup.rocks/events/${userId}/next`);
+      // set ff colour for only one second after it is clicked
+      setFFColour('clicked');
+      setPauseColour('');
+      setPlayColour('');
+      setTimeout(() => {
+        setFFColour('');
+        setPlayColour('clicked');
+      }, 1000);
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
     }
@@ -119,7 +130,6 @@ const HostPage = () => {
         userId={userId}
       />
       <section className='host-page-content'>
-        <SongSearch userId={userId} />
         <div className='host-page-start-party'>
           <Button
             variant='contained'
@@ -136,6 +146,7 @@ const HostPage = () => {
             Start the party
           </Button>
         </div>
+        <SongSearch userId={userId} />
         <NowPlaying
           nowPlaying={nowPlaying}
           playing={playing}
@@ -143,6 +154,7 @@ const HostPage = () => {
           playingAlbum={playingAlbum}
           playColour={playColour}
           pauseColour={pauseColour}
+          ffColour={ffColour}
           handlePlayClick={handlePlayClick}
           handlePauseClick={handlePauseClick}
           handleFFClick={handleFFClick}

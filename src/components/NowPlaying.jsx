@@ -15,6 +15,7 @@ const NowPlaying = ({
   playingAlbum,
   playColour,
   pauseColour,
+  ffColour,
   handlePlayClick,
   handlePauseClick,
   handleFFClick,
@@ -26,6 +27,7 @@ const NowPlaying = ({
     playingAlbum: PropTypes.string.isRequired,
     playColour: PropTypes.string.isRequired,
     pauseColour: PropTypes.string.isRequired,
+    ffColour: PropTypes.string.isRequired,
     handlePlayClick: PropTypes.func.isRequired,
     handlePauseClick: PropTypes.func.isRequired,
     handleFFClick: PropTypes.func.isRequired,
@@ -58,7 +60,7 @@ const NowPlaying = ({
           </Avatar>
         </ListItemAvatar>
         <ListItemAvatar>
-          <Avatar className={pauseColour === 'clicked' ? 'paused' : ''}>
+          <Avatar className={ffColour === 'clicked' ? 'ff' : ''}>
             <FastForwardIcon onClick={handleFFClick} />
           </Avatar>
         </ListItemAvatar>
