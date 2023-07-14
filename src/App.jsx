@@ -32,7 +32,10 @@ function App() {
         <section className='app-description'>
           <h2>Your Melody. Your World</h2>
           <p>{sayings[sayingIndex]}</p>
-          <Lottie animationData={djAnimation} style={{ maxWidth: '80%', maxHeight: '60%', alignItems: 'center', justifyContent: 'center', display: 'flex', margin: '0 auto' }} />
+          <div className='dj-animation'>
+            <Lottie animationData={djAnimation} style={{ maxWidth: '70%', maxHeight: '60%', alignItems: 'center', justifyContent: 'center', display: 'flex', margin: '0 auto', marginTop: '6em' }} />
+
+          </div>
         </section>
       </div>
       <footer className='footer'>
