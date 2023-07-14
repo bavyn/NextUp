@@ -60,7 +60,7 @@ const UserPage = () => {
       </div>
       <div className='now-playing-container'>
         <div className='now-playing'>
-          <h2 style={{ display: 'flex', alignItems: 'center' }}>
+          <h2 style={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
             Now Playing
             <div style={{ marginLeft: '10px' }}>
               <Lottie
@@ -74,9 +74,8 @@ const UserPage = () => {
           <div className='user-page-song-details'>
             <ListItemText
               primary={nowPlaying?.name || 'Unknown Track'}
-              secondary={`${playingArtist || 'Unknown Artist'} - ${
-                playingAlbum || 'Unknown Album'
-              }`}
+              secondary={`${playingArtist || 'Unknown Artist'} - ${playingAlbum || 'Unknown Album'
+                }`}
             />
           </div>
         </div>
