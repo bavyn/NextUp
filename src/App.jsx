@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import './App.css';
 import TopNavBar from './components/TopNavBar';
+import Lottie from 'lottie-react';
+import djAnimation from './lotties/dj.json'
 
 const sayings = [
   'Unite through Music',
@@ -30,6 +32,7 @@ function App() {
         <section className='app-description'>
           <h2>Your Melody. Your World</h2>
           <p>{sayings[sayingIndex]}</p>
+          <Lottie animationData={djAnimation} style={{ width: '80%', height: '60%', alignItems: 'center', justifyContent: 'center', display: 'flex', margin: '0 auto' }} />
         </section>
       </div>
       <footer className='footer'>

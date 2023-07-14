@@ -5,6 +5,7 @@
   min-height: 100vh;
   background: linear-gradient(to bottom, white, #b3d8ff);
   font-family: 'Abril Fatface', serif;
+  background-attachment: fixed;
 }
 
 .App-logo {
