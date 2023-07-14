@@ -1,13 +1,13 @@
 import { React, useEffect, useState } from 'react';
 import '../styles/UserPage.css';
 import UserNavBar from '../components/UserNavBar';
-import SearchBar from '../components/SearchBar';
+
+import SongSearch from '../components/SongSearch';
 import { useParams } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import musicAnimation from '../lotties/music.json';
 import axios from 'axios';
 import { ListItemText } from '@mui/material';
-
 
 const UserPage = () => {
   const { userId } = useParams();
@@ -16,11 +16,6 @@ const UserPage = () => {
   const [playing, setPlaying] = useState(false);
   const [playingArtist, setPlayingArtist] = useState('');
   const [playingAlbum, setPlayingAlbum] = useState('');
-
-  const handleSearch = (query) => {
-    const searchUrl = `https://open.spotify.com/search/${encodeURIComponent(query)}`;
-    window.location.href = searchUrl;
-  };
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -53,7 +48,6 @@ const UserPage = () => {
     };
   }, []);
 
-
   return (
     <div className='user-page'>
       <header className='user-page-header'>
@@ -61,7 +55,7 @@ const UserPage = () => {
       </header>
       <div className='user-page-body'>
         <div className='user-page-search-bar'>
-          <SearchBar onSearch={handleSearch} />
+          <SongSearch userId={userId} />
         </div>
       </div>
       <div className='now-playing-container'>
@@ -80,9 +74,10 @@ const UserPage = () => {
           <div className='user-page-song-details'>
             <ListItemText
               primary={nowPlaying?.name || 'Unknown Track'}
-              secondary={`${playingArtist || 'Unknown Artist'} - ${playingAlbum || 'Unknown Album'}`}
+              secondary={`${playingArtist || 'Unknown Artist'} - ${
+                playingAlbum || 'Unknown Album'
+              }`}
             />
-
           </div>
         </div>
       </div>
