@@ -2,16 +2,17 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/HostPage.css';
 import { useParams } from 'react-router-dom';
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Button } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import PauseCircleIcon from '@mui/icons-material/PauseCircle';
-import FastForwardIcon from '@mui/icons-material/FastForward';
-// import QRCodeDisplay from '../components/QRCodeDisplay';
+import { Button } from '@mui/material';
+// import DeleteIcon from '@mui/icons-material/Delete';
+// import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+// import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+// import FastForwardIcon from '@mui/icons-material/FastForward';
+import NowPlaying from '../components/NowPlaying';
+import Playlist from '../components/Playlist';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
-import Lottie from 'lottie-react';
-import musicAnimation from '../lotties/music.json';
+// import Lottie from 'lottie-react';
+// import musicAnimation from '../lotties/music.json';
 import SongSearch from '../components/SongSearch';
 
 const HostPage = () => {
@@ -141,69 +142,18 @@ const HostPage = () => {
             Start the party
           </Button>
         </div>
-        <div className='host-page-now-playing'>
-          <h2>
-            Now Playing
-            <div className='host-page-now-playing-animation'>
-              <Lottie animationData={musicAnimation} setSpeed={playing ? 0 : 20} />
-            </div>
-          </h2>
-          <div className='host-page-song-details'>
-            <ListItemText
-              primary={nowPlaying?.name || 'Unknown Track'}
-              secondary={`${playingArtist || 'Unknown Artist'} - ${
-                playingAlbum || 'Unknown Album'
-              }`}
-              style={{ textAlign: 'center' }}
-            />
-          </div>
-          <div className='host-page-avatars'>
-            <ListItemAvatar>
-              <Avatar className={playColour === 'clicked' ? 'playing' : ''}>
-                <PlayCircleIcon onClick={handlePlayClick} />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemAvatar>
-              <Avatar className={pauseColour === 'clicked' ? 'paused' : ''}>
-                <PauseCircleIcon onClick={handlePauseClick} />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemAvatar>
-              <Avatar className={pauseColour === 'clicked' ? 'paused' : ''}>
-                <FastForwardIcon onClick={handleFFClick} />
-              </Avatar>
-            </ListItemAvatar>
-          </div>
-        </div>
-        <h2>Your Playlist</h2>
-        <div className='host-page-playlist'>
-          <List>
-            {playlist &&
-              playlist.map((item) => {
-                const track = item?.Track;
-                const artist = track?.Artist?.name;
-                const album = track?.Album?.name;
-                return (
-                  <ListItem key={item.id} className='host-page-song-item'>
-                    <div className='host-page-song-details'>
-                      <ListItemText
-                        primary={track?.name || 'Unknown Track'}
-                        secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
-                        style={{ textAlign: 'center' }}
-                      />
-                    </div>
-                    <div className='host-page-avatars'>
-                      <ListItemAvatar>
-                        <Avatar>
-                          <DeleteIcon onClick={() => handleDeleteClick(item.id)} />
-                        </Avatar>
-                      </ListItemAvatar>
-                    </div>
-                  </ListItem>
-                );
-              })}
-          </List>
-        </div>
+        <NowPlaying
+          nowPlaying={nowPlaying}
+          playing={playing}
+          playingArtist={playingArtist}
+          playingAlbum={playingAlbum}
+          playColour={playColour}
+          pauseColour={pauseColour}
+          handlePlayClick={handlePlayClick}
+          handlePauseClick={handlePauseClick}
+          handleFFClick={handleFFClick}
+        />
+        <Playlist playlist={playlist} handleDeleteClick={handleDeleteClick} />
       </section>
       <footer className='footer'>
         <p>&copy; 2023 NextUp. All rights reserved.</p>
