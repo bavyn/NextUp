@@ -74,10 +74,6 @@
   background-color: orange;
 }
 
-.host-page-playlist {
-  margin-left: 4.5em;
-}
-
 .footer {
   padding: 20px;
   text-align: center;
@@ -95,7 +91,7 @@
   }
 
   .host-page-now-playing {
-    width: auto;
+    width: 85%;
   }
 
   .host-page-song-item {

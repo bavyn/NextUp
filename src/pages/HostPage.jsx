@@ -3,16 +3,10 @@ import axios from 'axios';
 import '../styles/HostPage.css';
 import { useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
-// import DeleteIcon from '@mui/icons-material/Delete';
-// import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-// import PauseCircleIcon from '@mui/icons-material/PauseCircle';
-// import FastForwardIcon from '@mui/icons-material/FastForward';
 import NowPlaying from '../components/NowPlaying';
 import Playlist from '../components/Playlist';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
-// import Lottie from 'lottie-react';
-// import musicAnimation from '../lotties/music.json';
 import SongSearch from '../components/SongSearch';
 
 const HostPage = () => {
