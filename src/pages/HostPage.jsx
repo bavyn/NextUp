@@ -1,17 +1,9 @@
-import { React, useEffect, useState, useRef } from 'react';
+import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/HostPage.css';
 // import SideMenu from '../components/SideMenu';
 import { useParams } from 'react-router-dom';
-import {
-  List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
-  Avatar,
-  Button,
-  TextField,
-} from '@mui/material';
+import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
@@ -20,6 +12,7 @@ import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
 import Lottie from 'lottie-react';
 import musicAnimation from '../lotties/music.json';
+import SongSearch from '../components/SongSearch';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -31,39 +24,6 @@ const HostPage = () => {
   const [playColour, setPlayColour] = useState('clicked');
   const [pauseColour, setPauseColour] = useState('');
   const [qrcodeModalOpen, setQRCodeModalOpen] = useState(false);
-  const searchResultsRef = useRef();
-  const [searchInput, setSearchInput] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-
-  useEffect(() => {
-    if (searchInput.length > 0) {
-      axios
-        .get(`https://api.nextup.rocks/events/${userId}/search/${searchInput}`)
-        .then((res) => {
-          const songs = res.data;
-          console.log(songs.tracks);
-          setSearchResults(songs.tracks);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    } else {
-      setSearchResults([]);
-    }
-  }, [searchInput]);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchResultsRef.current && !searchResultsRef.current.contains(event.target)) {
-        setSearchResults([]);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [searchResultsRef, setSearchResults]);
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -139,17 +99,6 @@ const HostPage = () => {
     }
   };
 
-  const handleAddSong = async (songId) => {
-    try {
-      const response = await axios.post(`https://api.nextup.rocks/events/${userId}/songs`, {
-        songID: songId,
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error('There has been a problem with your fetch operation:', error);
-    }
-  };
-
   const handleQRCodeModalClose = () => {
     setQRCodeModalOpen(false);
   };
@@ -168,43 +117,8 @@ const HostPage = () => {
         userId={userId}
       />
       <section className='host-page-playlist'>
-        <div style={{ position: 'relative' }}>
-          <TextField
-            label='Search'
-            variant='outlined'
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            style={{ width: '400px' }}
-          />
-          <div
-            ref={searchResultsRef}
-            style={{
-              position: 'absolute',
-              width: '100%',
-              maxHeight: '200px',
-              overflow: 'auto',
-              backgroundColor: '#fff',
-              zIndex: 1,
-              display: searchInput.length > 0 && searchResults.length > 0 ? 'block' : 'none',
-            }}
-          >
-            <List>
-              {searchResults.map((song) => (
-                <ListItem key={song.id}>
-                  <div>
-                    <div>{song.name}</div>
-                    <div style={{ paddingLeft: '20px' }}>{song.artists[0].name}</div>
-                  </div>
-                  <div>
-                    <ListItemAvatar>
-                      <PlayCircleIcon onClick={() => handleAddSong(song.id)} />
-                    </ListItemAvatar>
-                  </div>
-                </ListItem>
-              ))}
-            </List>
-          </div>
-        </div>
+        <SongSearch userId={userId} />
+
         <Button
           variant='contained'
           sx={{
