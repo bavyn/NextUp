@@ -3,6 +3,7 @@
   flex-direction: column;
   min-height: 100vh;
   background: linear-gradient(to bottom, white, #b3d8ff);
+  background-attachment: fixed;
   font-family: 'Abril Fatface', serif;
 }
 
@@ -10,11 +11,37 @@
   text-align: center;
 }
 
-.host-page-playlist {
+.host-page-header h1 {
+  margin-top: -1em; /*dont use negative*/
+}
+
+.host-page-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.host-page-content h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5em;
+}
+
+.host-page-now-playing {
+  padding: 0.5em;
+  padding-bottom: 2em;
+  border: 2px solid #b3d8ff;
+  border-radius: 10px;
+  margin: 1em;
+  width: 45em;
+}
+
+.host-page-now-playing-animation {
+  margin-left: 10px;
+  width: 35px;
+  height: 35px;
 }
 
 .host-page-song-item {
@@ -23,13 +50,14 @@
 }
 
 .host-page-song-details {
-  padding-right: 20px;
+  padding: 0 1em;
   flex: 1;
 }
 
 .host-page-avatars {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-left: 1em;
 }
 
 .host-page-avatars .MuiAvatar-root.playing {
@@ -40,8 +68,8 @@
   background-color: orange;
 }
 
-.host-page-header h1 {
-  margin-top: -1em; /*dont use negative*/
+.host-page-playlist {
+  margin-left: 4.5em;
 }
 
 .footer {
@@ -52,17 +80,16 @@
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
-  .host-page-header {
+  .host-page-header h1 {
+    margin: 0em;
+  }
+
+  .host-page-content {
     margin-top: 1em;
   }
 
-  .host-page-playlist {
-    margin-top: 1em;
-  }
-
-  .host-page-playlist h2 {
-    font-size: 20px;
-    margin-bottom: 0.5em;
+  .host-page-now-playing {
+    width: auto;
   }
 
   .host-page-song-item {
@@ -75,8 +102,7 @@
     margin-bottom: 0.5em;
   }
 
-  .host-page-avatars {
-    justify-content: flex-start;
-    margin-top: 0.5em;
+  .host-page-playlist {
+    margin-left: 0;
   }
 }

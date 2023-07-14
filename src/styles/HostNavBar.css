@@ -8,6 +8,6 @@
 /* Media query for smaller screens */
 @media (max-width: 768px) {
   .top-nav-bar {
-    margin-bottom: 2em;
+    margin-bottom: 0em;
   }
 }
