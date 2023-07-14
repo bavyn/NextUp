@@ -22,6 +22,12 @@
   justify-content: center;
 }
 
+.host-page-start-party {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+}
+
 .host-page-content h2 {
   display: flex;
   align-items: center;

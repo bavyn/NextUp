@@ -115,8 +115,8 @@ const HostPage = () => {
         userId={userId}
       />
       <section className='host-page-content'>
+        <SongSearch userId={userId} />
         <div className='host-page-start-party'>
-          <SongSearch userId={userId} />
           <Button
             variant='contained'
             sx={{
