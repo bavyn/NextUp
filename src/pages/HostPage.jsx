@@ -114,76 +114,81 @@ const HostPage = () => {
         value={`https://nextup.rocks/event/${userId}`}
         userId={userId}
       />
-      <section className='host-page-playlist'>
-        <Button
-          variant='contained'
-          sx={{
-            backgroundColor: 'black',
-            color: 'white',
-            '&:hover': {
-              backgroundColor: 'white',
-              color: 'black',
-            },
-          }}
-          onClick={handlePartyClick}
-        >
-          Start the party
-        </Button>
-        <h2 style={{ display: 'flex', alignItems: 'center' }}>
-          Now Playing
-          <div style={{ marginLeft: '10px' }}>
-            <Lottie
-              animationData={musicAnimation}
-              style={{ width: '35px', height: '35px' }} // You forgot to mention the height
-              setSpeed={playing ? 0 : 20}
+      <section className='host-page-content'>
+        <div className='host-page-start-party'>
+          <Button
+            variant='contained'
+            sx={{
+              backgroundColor: 'black',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'white',
+                color: 'black',
+              },
+            }}
+            onClick={handlePartyClick}
+          >
+            Start the party
+          </Button>
+        </div>
+        <div className='host-page-now-playing'>
+          <h2>
+            Now Playing
+            <div className='host-page-now-playing-animation'>
+              <Lottie animationData={musicAnimation} setSpeed={playing ? 0 : 20} />
+            </div>
+          </h2>
+          <div className='host-page-song-details'>
+            <ListItemText
+              primary={nowPlaying?.name || 'Unknown Track'}
+              secondary={`${playingArtist || 'Unknown Artist'} - ${
+                playingAlbum || 'Unknown Album'
+              }`}
+              style={{ textAlign: 'center' }}
             />
           </div>
-        </h2>
-
-        <div className='host-page-song-details'>
-          <ListItemText
-            primary={nowPlaying?.name || 'Unknown Track'}
-            secondary={`${playingArtist || 'Unknown Artist'} - ${playingAlbum || 'Unknown Album'}`}
-          />
-        </div>
-        <div className='host-page-avatars'>
-          <ListItemAvatar>
-            <Avatar className={playColour === 'clicked' ? 'playing' : ''}>
-              <PlayCircleIcon onClick={handlePlayClick} />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemAvatar>
-            <Avatar className={pauseColour === 'clicked' ? 'paused' : ''}>
-              <PauseCircleIcon onClick={handlePauseClick} />
-            </Avatar>
-          </ListItemAvatar>
+          <div className='host-page-avatars'>
+            <ListItemAvatar>
+              <Avatar className={playColour === 'clicked' ? 'playing' : ''}>
+                <PlayCircleIcon onClick={handlePlayClick} />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemAvatar>
+              <Avatar className={pauseColour === 'clicked' ? 'paused' : ''}>
+                <PauseCircleIcon onClick={handlePauseClick} />
+              </Avatar>
+            </ListItemAvatar>
+          </div>
         </div>
         <h2>Your Playlist</h2>
-        <List>
-          {playlist &&
-            playlist.map((item) => {
-              const track = item?.Track;
-              const artist = track?.Artist?.name;
-              const album = track?.Album?.name;
-              return (
-                <ListItem key={item.id} className='host-page-song-item'>
-                  <div className='host-page-song-details'>
-                    <ListItemText
-                      primary={track?.name || 'Unknown Track'}
-                      secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
-                    />
-                  </div>
-                  <div className='host-page-avatars'>
-                    <ListItemAvatar>
-                      <Avatar>
-                        <DeleteIcon onClick={() => handleDeleteClick(item.id)} />
-                      </Avatar>
-                    </ListItemAvatar>
-                  </div>
-                </ListItem>
-              );
-            })}
-        </List>
+        <div className='host-page-playlist'>
+          <List>
+            {playlist &&
+              playlist.map((item) => {
+                const track = item?.Track;
+                const artist = track?.Artist?.name;
+                const album = track?.Album?.name;
+                return (
+                  <ListItem key={item.id} className='host-page-song-item'>
+                    <div className='host-page-song-details'>
+                      <ListItemText
+                        primary={track?.name || 'Unknown Track'}
+                        secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
+                        style={{ textAlign: 'center' }}
+                      />
+                    </div>
+                    <div className='host-page-avatars'>
+                      <ListItemAvatar>
+                        <Avatar>
+                          <DeleteIcon onClick={() => handleDeleteClick(item.id)} />
+                        </Avatar>
+                      </ListItemAvatar>
+                    </div>
+                  </ListItem>
+                );
+              })}
+          </List>
+        </div>
       </section>
       <footer className='footer'>
         <p>&copy; 2023 NextUp. All rights reserved.</p>
