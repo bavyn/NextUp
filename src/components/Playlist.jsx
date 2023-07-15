@@ -4,10 +4,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import PropTypes from 'prop-types';
 import '../styles/Playlist.css';
 
-const Playlist = ({ playlist, handleDeleteClick }) => {
+const Playlist = ({ playlist, handleDeleteClick, showControls }) => {
   Playlist.propTypes = {
     playlist: PropTypes.array.isRequired,
     handleDeleteClick: PropTypes.func.isRequired,
+    showControls: PropTypes.bool.isRequired,
   };
 
   return (
@@ -28,13 +29,15 @@ const Playlist = ({ playlist, handleDeleteClick }) => {
                     style={{ textAlign: 'center' }}
                   />
                 </div>
-                <div className='playlist-avatars'>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <DeleteIcon onClick={() => handleDeleteClick(item.id)} />
-                    </Avatar>
-                  </ListItemAvatar>
-                </div>
+                {showControls && (
+                  <div className='playlist-avatars'>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <DeleteIcon onClick={() => handleDeleteClick(item.id)} />
+                      </Avatar>
+                    </ListItemAvatar>
+                  </div>
+                )}
               </ListItem>
             );
           })}

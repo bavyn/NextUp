@@ -162,7 +162,11 @@ const HostPage = () => {
           handleFFClick={handleFFClick}
           showControls={showControls}
         />
-        <Playlist playlist={playlist} handleDeleteClick={handleDeleteClick} />
+        <Playlist
+          playlist={playlist}
+          handleDeleteClick={handleDeleteClick}
+          showControls={showControls}
+        />
       </section>
       <footer className='footer'>
         <p>&copy; 2023 NextUp. All rights reserved.</p>
