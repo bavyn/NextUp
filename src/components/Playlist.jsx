@@ -21,7 +21,10 @@ const Playlist = ({ playlist, handleDeleteClick, showControls }) => {
             const artist = track?.Artist?.name;
             const album = track?.Album?.name;
             return (
-              <ListItem key={item.id} className='playlist-song-item'>
+              <ListItem
+                key={item.id}
+                className={`playlist-song-item ${showControls ? 'show-controls' : ''}`}
+              >
                 <div className='playlist-song-details'>
                   <ListItemText
                     primary={track?.name || 'Unknown Track'}
