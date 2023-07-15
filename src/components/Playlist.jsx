@@ -12,7 +12,7 @@ const Playlist = ({ playlist, handleDeleteClick, showControls }) => {
   };
 
   return (
-    <div className='playlist'>
+    <div className={`playlist ${showControls ? 'show-controls' : ''}`}>
       <h2 className='playlist-header'>Your Playlist</h2>
       <div className='playlist-content'>
         <List>
@@ -26,7 +26,6 @@ const Playlist = ({ playlist, handleDeleteClick, showControls }) => {
                   <ListItemText
                     primary={track?.name || 'Unknown Track'}
                     secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
-                    style={{ textAlign: 'center' }}
                   />
                 </div>
                 {showControls && (
