@@ -1,4 +1,7 @@
 .login-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   position: absolute;
   top: 0;
   right: 0;
@@ -9,11 +12,15 @@
 @media (max-width: 768px) {
   .login-button-container {
     font-size: 0.5rem;
-    /* padding: 5px 10px; Adjust the padding as desired */
-    margin-top: 100%;
+    padding: 15px 30px;
+    margin-top: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 16em;
+    position: absolute;
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
   }
 }

@@ -58,7 +58,7 @@
 
 .app-description h2 {
   font-size: x-large;
-  margin-top: -0.5em;
+  /* margin-top: -0.5em; */
 }
 
 .app-description p {
@@ -76,18 +76,12 @@
   .nav-items img {
     width: 80px;
     height: 80px;
+    margin-top: 1em;
+    margin-left: 0.5em;
   }
   .name-header {
     margin-top: 5em;
   }
-  /* .dj-animation {
-    width: 70%;
-    height: 60%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin: '0 auto';
-  } */
 }
 
 .search-results-container {

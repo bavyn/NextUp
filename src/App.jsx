@@ -33,7 +33,7 @@ function App() {
           <h2>Your Melody. Your World</h2>
           <p>{sayings[sayingIndex]}</p>
           <div className='dj-animation'>
-            <Lottie animationData={djAnimation} style={{ maxWidth: '70%', maxHeight: '60%', alignItems: 'center', justifyContent: 'center', display: 'flex', margin: '0 auto', marginTop: '6em' }} />
+            <Lottie animationData={djAnimation} style={{ maxWidth: '70%', maxHeight: '60%', alignItems: 'center', justifyContent: 'center', display: 'flex', margin: '0 auto', marginTop: '7em' }} />
 
           </div>
         </section>
