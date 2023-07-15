@@ -1,0 +1,26 @@
+.now-playing-controls {
+  display: flex;
+  justify-content: center;
+  margin-left: 1em;
+  padding-top: 1em;
+}
+
+.now-playing-controls .MuiAvatar-root {
+  transition: box-shadow 0.3s ease;
+}
+
+.now-playing-controls .MuiAvatar-root:hover {
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.now-playing-controls .MuiAvatar-root.playing {
+  background-color: #00d100;
+}
+
+.now-playing-controls .MuiAvatar-root.paused {
+  background-color: orange;
+}
+
+.now-playing-controls .MuiAvatar-root.ff {
+  background-color: #8a2be2;
+}
