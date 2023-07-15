@@ -154,12 +154,6 @@ const HostPage = () => {
             playing={playing}
             playingArtist={playingArtist}
             playingAlbum={playingAlbum}
-            playColour={playColour}
-            pauseColour={pauseColour}
-            ffColour={ffColour}
-            handlePlayClick={handlePlayClick}
-            handlePauseClick={handlePauseClick}
-            handleFFClick={handleFFClick}
           />
           <NowPlayingControls
             playColour={playColour}
