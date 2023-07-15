@@ -28,6 +28,10 @@
   background: linear-gradient(to left, transparent, #9acbff, transparent);
 }
 
+.show-controls .playlist-song-item::after {
+  left: -2em;
+}
+
 .playlist-song-details {
   padding: 0 1em;
   flex: 1;
@@ -64,6 +68,10 @@
 
   .playlist-song-item {
     flex-direction: column;
+  }
+
+  .show-controls .playlist-song-item::after {
+    left: 0;
   }
 
   .playlist-song-details {
