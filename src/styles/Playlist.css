@@ -24,7 +24,6 @@
   margin-left: 1em;
 }
 
-
 .playlist-avatars .MuiAvatar-root {
   transition: box-shadow 0.3s ease;
 }
@@ -38,7 +37,7 @@
   .playlist {
     margin-left: 0;
   }
-  
+
   .playlist-header {
     padding-right: 0;
   }
