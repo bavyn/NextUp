@@ -8,7 +8,6 @@ import Playlist from '../components/Playlist';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
 import SongSearch from '../components/SongSearch';
-import NowPlayingControls from '../components/NowPlayingControls';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -118,6 +117,8 @@ const HostPage = () => {
     setQRCodeModalOpen(false);
   };
 
+  const showControls = true;
+
   return (
     <div className='host-page'>
       <header className='host-page-header'>
@@ -148,22 +149,19 @@ const HostPage = () => {
           </Button>
         </div>
         <SongSearch userId={userId} />
-        <div className='host-page-now-playing'>
-          <NowPlaying
-            nowPlaying={nowPlaying}
-            playing={playing}
-            playingArtist={playingArtist}
-            playingAlbum={playingAlbum}
-          />
-          <NowPlayingControls
-            playColour={playColour}
-            pauseColour={pauseColour}
-            ffColour={ffColour}
-            handlePlayClick={handlePlayClick}
-            handlePauseClick={handlePauseClick}
-            handleFFClick={handleFFClick}
-          />
-        </div>
+        <NowPlaying
+          nowPlaying={nowPlaying}
+          playing={playing}
+          playingArtist={playingArtist}
+          playingAlbum={playingAlbum}
+          playColour={playColour}
+          pauseColour={pauseColour}
+          ffColour={ffColour}
+          handlePlayClick={handlePlayClick}
+          handlePauseClick={handlePauseClick}
+          handleFFClick={handleFFClick}
+          showControls={showControls}
+        />
         <Playlist playlist={playlist} handleDeleteClick={handleDeleteClick} />
       </section>
       <footer className='footer'>
