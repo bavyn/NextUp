@@ -8,9 +8,9 @@
 
 @media (max-width: 768px) {
   .login-button-container {
-    font-size: 0.5rem; /* Adjust the font size as desired */
+    font-size: 0.5rem;
     /* padding: 5px 10px; Adjust the padding as desired */
-    margin-top: 120%;
+    margin-top: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -77,6 +77,17 @@
     width: 80px;
     height: 80px;
   }
+  .name-header {
+    margin-top: 5em;
+  }
+  /* .dj-animation {
+    width: 70%;
+    height: 60%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: '0 auto';
+  } */
 }
 
 .search-results-container {
