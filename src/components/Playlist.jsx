@@ -4,14 +4,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import PropTypes from 'prop-types';
 import '../styles/Playlist.css';
 
-const Playlist = ({ playlist, handleDeleteClick }) => {
+const Playlist = ({ playlist, handleDeleteClick, showControls }) => {
   Playlist.propTypes = {
     playlist: PropTypes.array.isRequired,
     handleDeleteClick: PropTypes.func.isRequired,
+    showControls: PropTypes.bool.isRequired,
   };
 
   return (
-    <div className='playlist'>
+    <div className={`playlist ${showControls ? 'show-controls' : ''}`}>
       <h2 className='playlist-header'>Your Playlist</h2>
       <div className='playlist-content'>
         <List>
@@ -25,16 +26,17 @@ const Playlist = ({ playlist, handleDeleteClick }) => {
                   <ListItemText
                     primary={track?.name || 'Unknown Track'}
                     secondary={`${artist || 'Unknown Artist'} - ${album || 'Unknown Album'}`}
-                    style={{ textAlign: 'center' }}
                   />
                 </div>
-                <div className='playlist-avatars'>
-                  <ListItemAvatar>
-                    <Avatar>
-                      <DeleteIcon onClick={() => handleDeleteClick(item.id)} />
-                    </Avatar>
-                  </ListItemAvatar>
-                </div>
+                {showControls && (
+                  <div className='playlist-avatars'>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <DeleteIcon onClick={() => handleDeleteClick(item.id)} />
+                      </Avatar>
+                    </ListItemAvatar>
+                  </div>
+                )}
               </ListItem>
             );
           })}

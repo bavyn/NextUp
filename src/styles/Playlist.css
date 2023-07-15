@@ -1,10 +1,16 @@
 .playlist {
-  margin-left: 4.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .playlist-header {
-  padding-right: 3em;
   margin-bottom: 0.5em;
+}
+
+.show-controls .playlist-content {
+  margin-left: 4.5em;
 }
 
 .playlist-song-item {
@@ -13,9 +19,19 @@
   position: relative;
 }
 
+.playlist-song-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to left, transparent, #9acbff, transparent);
+}
+
 .playlist-song-details {
   padding: 0 1em;
   flex: 1;
+  text-align: center;
 }
 
 .playlist-avatars {
@@ -42,6 +58,10 @@
     padding-right: 0;
   }
 
+  .show-controls .playlist-content {
+    margin-left: 0;
+  }
+
   .playlist-song-item {
     flex-direction: column;
   }
@@ -49,5 +69,6 @@
   .playlist-song-details {
     text-align: left;
     margin-bottom: 0.5em;
+    text-align: center;
   }
 }
