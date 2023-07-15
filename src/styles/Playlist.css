@@ -19,6 +19,15 @@
   position: relative;
 }
 
+.playlist-song-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to left, transparent, #9acbff, transparent);
+}
+
 .playlist-song-details {
   padding: 0 1em;
   flex: 1;

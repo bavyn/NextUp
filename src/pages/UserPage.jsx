@@ -64,7 +64,7 @@ const UserPage = () => {
           playingAlbum={playingAlbum}
           showControls={showControls}
         />
-        <Playlist playlist={playlist} />
+        <Playlist playlist={playlist} showControls={showControls} />
       </section>
       <footer className='footer'>
         <p>&copy; 2023 NextUp. All rights reserved.</p>
