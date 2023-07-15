@@ -42,6 +42,37 @@ const SongSearch = ({ userId }) => {
     }
   };
 
+  const searchResultsStyle = {
+    overflowY: 'auto',
+    marginTop: '5px',
+    transition: 'max-height 0.3s ease',
+    maxHeight: isListVisible ? '200px' : '0',
+    width: '22em',
+    ...(isListVisible && {
+      border: '1px solid #b3d8ff',
+      borderRadius: '5px',
+    }),
+  };
+
+  const scrollbarStyle = `
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+  `;
+
   return (
     <div style={{ position: 'relative' }}>
       <TextField
@@ -52,16 +83,8 @@ const SongSearch = ({ userId }) => {
         style={{ width: '22em' }}
       />
 
-      <div
-        ref={searchResultsRef}
-        style={{
-          overflowY: 'auto',
-          marginTop: '5px',
-          transition: 'max-height 0.3s ease',
-          maxHeight: isListVisible ? '200px' : '0',
-          width: '22em',
-        }}
-      >
+      <div ref={searchResultsRef} style={searchResultsStyle} className='search-results-container'>
+        <style>{scrollbarStyle}</style>
         <List>
           {searchResults.map((song) => (
             <ListItem key={song.id}>

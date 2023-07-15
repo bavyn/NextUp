@@ -78,3 +78,8 @@
     height: 80px;
   }
 }
+
+.search-results-container {
+  scrollbar-width: thin;
+  scrollbar-color: #b3d8ff rgb(228, 244, 243);
+}
