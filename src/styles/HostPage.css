@@ -35,6 +35,15 @@
   padding-bottom: 1em;
 }
 
+.host-page-now-playing {
+  padding: 0.5em;
+  padding-bottom: 2em;
+  border: 2px solid #b3d8ff;
+  border-radius: 10px;
+  margin: 1em;
+  width: 45em;
+}
+
 .footer {
   padding: 20px;
   text-align: center;
@@ -49,5 +58,9 @@
 
   .host-page-content {
     margin-top: 1em;
+  }
+
+  .host-page-now-playing {
+    width: 85%;
   }
 }
