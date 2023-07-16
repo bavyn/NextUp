@@ -1,8 +1,13 @@
 .list-item {
-  transition: background-color 0.3s ease;
+  transition: background-color 0.1s ease;
   cursor: default;
 }
 
 .list-item:hover {
   background-color: #e0e0e0;
+}
+
+.list-item.clicked-song {
+  background-color: rgb(181, 240, 181);
+  transition: background-color 1s ease;
 }

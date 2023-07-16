@@ -127,7 +127,7 @@ const HostPage = () => {
         <div className='host-page-start-party'>
           <StartThePartyButton userId={userId} playlist={playlist} />
         </div>
-        <SongSearch userId={userId} />
+        <SongSearch userId={userId} playlist={playlist} host={true} />
         <NowPlaying
           nowPlaying={nowPlaying}
           playing={playing}

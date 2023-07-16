@@ -9,7 +9,6 @@ import NowPlayingControls from './NowPlayingControls';
 
 const NowPlaying = ({
   nowPlaying,
-  playing,
   playingArtist,
   playingAlbum,
   playColour,
@@ -39,7 +38,7 @@ const NowPlaying = ({
       <h2>
         Now Playing
         <div className='now-playing-animation'>
-          <Lottie animationData={musicAnimation} setSpeed={playing ? 0 : 20} />
+          <Lottie animationData={musicAnimation} isPaused={false} />
         </div>
       </h2>
       <div className='now-playing-song-details'>
