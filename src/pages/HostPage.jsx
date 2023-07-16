@@ -7,8 +7,10 @@ import Playlist from '../components/Playlist';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
 import SongSearch from '../components/SongSearch';
-import StartThePartyButton from '../components/StartThePartyButton';
+// import StartThePartyButton from '../components/StartThePartyButton';
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import { Button } from '@mui/material';
+import PartyModal from '../components/PartyModal';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -21,6 +23,7 @@ const HostPage = () => {
   const [pauseColour, setPauseColour] = useState('');
   const [ffColour, setFFColour] = useState('');
   const [qrcodeModalOpen, setQRCodeModalOpen] = useState(false);
+  const [partyModalOpen, setPartyModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -109,6 +112,14 @@ const HostPage = () => {
     setQRCodeModalOpen(false);
   };
 
+  const handlePartyModalClose = () => {
+    setPartyModalOpen(false);
+  };
+
+  const handleStartPartyClick = () => {
+    setPartyModalOpen(true);
+  };
+
   const showControls = true;
 
   return (
@@ -123,9 +134,30 @@ const HostPage = () => {
         value={`https://nextup.rocks/event/${userId}`}
         userId={userId}
       />
+      <PartyModal
+        open={partyModalOpen}
+        onClose={handlePartyModalClose}
+        value={`https://nextup.rocks/event/${userId}`}
+        playlist={playlist}
+        userId={userId}
+      />
       <section className='host-page-content'>
         <div className='host-page-start-party'>
-          <StartThePartyButton userId={userId} playlist={playlist} />
+          {/* <StartThePartyButton userId={userId} playlist={playlist} /> */}
+          <Button
+            variant='contained'
+            sx={{
+              backgroundColor: 'black',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'white',
+                color: 'black',
+              },
+            }}
+            onClick={handleStartPartyClick}
+          >
+            Start the party
+          </Button>
         </div>
         <SongSearch userId={userId} playlist={playlist} host={true} />
         <NowPlaying

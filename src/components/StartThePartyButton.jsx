@@ -3,7 +3,7 @@ import { Button, Snackbar, SnackbarContent } from '@mui/material';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-const StartThePartyButton = ({ userId, playlist }) => {
+const StartThePartyButton = ({ userId, playlist, selectedDevice }) => {
   const [open, setOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('Party has started');
   const [toastColour, setToastColour] = useState('green');
@@ -14,6 +14,7 @@ const StartThePartyButton = ({ userId, playlist }) => {
 
   const handlePartyClick = async () => {
     console.log('userid', userId);
+    console.log('selectedDevice', selectedDevice);
     if (!playlist || playlist.length === 0) {
       setToastMessage(
         'No songs in your playlist. Please add some songs before starting the party.',
@@ -22,7 +23,9 @@ const StartThePartyButton = ({ userId, playlist }) => {
       setOpen(true);
     } else {
       try {
-        const response = await axios.get(`https://api.nextup.rocks/events/${userId}/start`);
+        const response = await axios.get(
+          `htts://api.nextup.rocks/events/${userId}/start?deviceId=${selectedDevice}`,
+        );
         console.log(response.data);
         setToastMessage(
           'Party has started! If you cannot hear your music, make sure that you do not have another device running spotify.',
@@ -43,6 +46,7 @@ const StartThePartyButton = ({ userId, playlist }) => {
   StartThePartyButton.propTypes = {
     userId: PropTypes.string.isRequired,
     playlist: PropTypes.array.isRequired,
+    selectedDevice: PropTypes.string.isRequired,
   };
 
   return (
