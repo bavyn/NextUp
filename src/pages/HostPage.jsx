@@ -2,12 +2,12 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/HostPage.css';
 import { useParams } from 'react-router-dom';
-import { Button } from '@mui/material';
 import NowPlaying from '../components/NowPlaying';
 import Playlist from '../components/Playlist';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
 import SongSearch from '../components/SongSearch';
+import StartThePartyButton from '../components/StartThePartyButton';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -104,15 +104,6 @@ const HostPage = () => {
     }
   };
 
-  const handlePartyClick = async () => {
-    try {
-      const response = await axios.get(`https://api.nextup.rocks/events/${userId}/start`);
-      console.log(response.data);
-    } catch (error) {
-      console.error('Error occurred:', error);
-    }
-  };
-
   const handleQRCodeModalClose = () => {
     setQRCodeModalOpen(false);
   };
@@ -133,20 +124,7 @@ const HostPage = () => {
       />
       <section className='host-page-content'>
         <div className='host-page-start-party'>
-          <Button
-            variant='contained'
-            sx={{
-              backgroundColor: 'black',
-              color: 'white',
-              '&:hover': {
-                backgroundColor: 'white',
-                color: 'black',
-              },
-            }}
-            onClick={handlePartyClick}
-          >
-            Start the party
-          </Button>
+          <StartThePartyButton userId={userId} playlist={playlist} />
         </div>
         <SongSearch userId={userId} />
         <NowPlaying
