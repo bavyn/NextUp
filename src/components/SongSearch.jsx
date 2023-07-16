@@ -3,6 +3,7 @@ import '../styles/UserNavBar.css';
 import PropTypes from 'prop-types';
 import { List, TextField, ListItem, ListItemAvatar } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import '../styles/SongSearch.css';
 
 import axios from 'axios';
 
@@ -87,9 +88,9 @@ const SongSearch = ({ userId }) => {
         <style>{scrollbarStyle}</style>
         <List>
           {searchResults.map((song) => (
-            <ListItem key={song.id}>
+            <ListItem className='list-item' key={song.id} onClick={() => handleAddSong(song.id)}>
               <ListItemAvatar>
-                <AddCircleIcon onClick={() => handleAddSong(song.id)} />
+                <AddCircleIcon />
               </ListItemAvatar>
               <div>
                 <div>{song.name}</div>
