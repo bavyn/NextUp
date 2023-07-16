@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import NowPlaying from '../components/NowPlaying';
 import Playlist from '../components/Playlist';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 
 const UserPage = () => {
   const { userId } = useParams();
@@ -66,6 +67,7 @@ const UserPage = () => {
         />
         <Playlist playlist={playlist} showControls={showControls} />
       </section>
+      <ScrollToTopButton />
       <footer className='footer'>
         <p>&copy; 2023 NextUp. All rights reserved.</p>
       </footer>

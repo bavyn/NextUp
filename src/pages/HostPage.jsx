@@ -8,6 +8,7 @@ import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
 import SongSearch from '../components/SongSearch';
 import StartThePartyButton from '../components/StartThePartyButton';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -146,6 +147,7 @@ const HostPage = () => {
           showControls={showControls}
         />
       </section>
+      <ScrollToTopButton />
       <footer className='footer'>
         <p>&copy; 2023 NextUp. All rights reserved.</p>
       </footer>
