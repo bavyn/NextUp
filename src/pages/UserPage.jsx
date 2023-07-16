@@ -57,7 +57,7 @@ const UserPage = () => {
         <h1>Welcome to {userId}&rsquo;s party!</h1>
       </header>
       <section className='user-page-body'>
-        <SongSearch userId={userId} />
+        <SongSearch userId={userId} playlist={playlist} host={false} />
         <NowPlaying
           nowPlaying={nowPlaying}
           playing={playing}
