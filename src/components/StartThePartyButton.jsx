@@ -24,7 +24,7 @@ const StartThePartyButton = ({ userId, playlist, selectedDevice }) => {
     } else {
       try {
         const response = await axios.get(
-          `htts://api.nextup.rocks/events/${userId}/start?deviceId=${selectedDevice}`,
+          `https://api.nextup.rocks/events/${userId}/start?deviceId=${selectedDevice}`,
         );
         console.log(response.data);
         setToastMessage(

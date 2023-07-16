@@ -146,12 +146,13 @@ const HostPage = () => {
           {/* <StartThePartyButton userId={userId} playlist={playlist} /> */}
           <Button
             variant='contained'
+            disabled={playlist.length === 0}
             sx={{
               backgroundColor: 'black',
               color: 'white',
               '&:hover': {
-                backgroundColor: 'white',
-                color: 'black',
+                backgroundColor: playlist.length === 0 ? 'black' : 'white',
+                color: playlist.length === 0 ? 'white' : 'black',
               },
             }}
             onClick={handleStartPartyClick}
