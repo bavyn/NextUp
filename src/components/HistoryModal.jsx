@@ -9,6 +9,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  Box,
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -29,8 +30,12 @@ const HistoryModal = ({ open, onClose, userId }) => {
   return (
     <div className='history-modal'>
       <Dialog open={open} onClose={onClose}>
-        <DialogTitle>
-          <h4 className='history-modal-header' style={{ justifyContent: 'center', alignItems: 'center' }}>View history</h4>
+        <DialogTitle className='history-modal-header' style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <Box textAlign='center'>
+            <Typography variant='h6'>
+              View history <br />
+            </Typography>
+          </Box>
         </DialogTitle>
 
         <DialogContent>
