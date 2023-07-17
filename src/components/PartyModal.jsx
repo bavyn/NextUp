@@ -20,7 +20,7 @@ const PartyModal = ({ open, onClose, userId, playlist }) => {
 
   useEffect(() => {
     axios
-      .get('https://api.nextup.rocks/events/dmurphysuo/devices')
+      .get(`https://api.nextup.rocks/events/${userId}/devices`)
       .then((response) => {
         setDevices(response.data);
         setSelectedDevice(response.data[0]?.id || '');
