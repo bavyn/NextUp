@@ -15,7 +15,7 @@ const Playlist = ({ playlist, handleDeleteClick, showControls, onDragEnd }) => {
 
   return (
     <div className={`playlist ${showControls ? 'show-controls' : ''}`}>
-      <h2 className='playlist-header'>Your Playlist</h2>
+      <h2 className='playlist-header'>Song Queue</h2>
       <div className='playlist-content'>
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId='droppable'>
