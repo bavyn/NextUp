@@ -30,7 +30,8 @@ const HostPage = () => {
       try {
         const response = await axios.get(`https://api.nextup.rocks/events/${userId}/playlist`);
         const { playlist, currentlyPlaying } = response.data;
-        setPlaylist(playlist.queue);
+        const sortedPlaylist = [...playlist.queue].sort((a, b) => a.position - b.position);
+        setPlaylist(sortedPlaylist);
         setNowPlaying(currentlyPlaying);
 
         if (!currentlyPlaying.artists) {
@@ -56,6 +57,43 @@ const HostPage = () => {
       clearInterval(intervalId);
     };
   }, []);
+
+  async function onDragEnd(result) {
+    if (!result.destination) {
+      return;
+    }
+
+    const fromIndex = result.source.index;
+    const toIndex = result.destination.index;
+
+    const items = Array.from(playlist);
+    const [reorderedItem] = items.splice(fromIndex, 1);
+    items.splice(toIndex, 0, reorderedItem);
+
+    setPlaylist(items);
+
+    try {
+      const response = await fetch(`https://api.nextup.rocks/events/${userId}/playlist/reorder`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fromIndex: fromIndex,
+          toIndex: toIndex,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const json = await response.json();
+      console.log(json.message);
+    } catch (error) {
+      console.error('Failed to reorder playlist', error);
+    }
+  }
 
   const handlePlayClick = async () => {
     try {
@@ -176,6 +214,7 @@ const HostPage = () => {
         />
         <Playlist
           playlist={playlist}
+          onDragEnd={onDragEnd}
           handleDeleteClick={handleDeleteClick}
           showControls={showControls}
         />
