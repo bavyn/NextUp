@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/ErrorPage.css';
-import GoHomeButton from './GoHomeButton';
+import GoHomeButton from '../components/GoHomeButton';
 
 const ErrorPage = () => {
   return (
