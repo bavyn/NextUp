@@ -6,7 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import HostPage from './pages/HostPage';
 import UserPage from './pages/UserPage';
-import ErrorPage from './components/ErrorPage';
+import ErrorPage from './pages/ErrorPage';
 
 ReactDOM.render(
   <React.StrictMode>
