@@ -10,4 +10,10 @@
   .top-nav-bar {
     margin-bottom: 0em;
   }
+  .top-nav-bar img {
+    width: 80px;
+    height: 80px;
+    margin-top: 0.5em;
+    margin-left: -0.7em;
+  }
 }
