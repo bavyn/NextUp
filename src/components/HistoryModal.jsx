@@ -13,6 +13,7 @@ import {
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import ExportPlaylistButton from '../components/ExportPlaylistButton';
 
 const HistoryModal = ({ open, onClose, userId }) => {
   const [history, setHistory] = useState([]);
@@ -29,7 +30,7 @@ const HistoryModal = ({ open, onClose, userId }) => {
   return (
     <div className='history-modal'>
       <Dialog open={open} onClose={onClose}>
-        <DialogTitle className='history-modal-header'>
+        <DialogTitle className='history-modal-header' style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Box textAlign='center'>
             <Typography variant='h6'>
               View history <br />
@@ -46,9 +47,8 @@ const HistoryModal = ({ open, onClose, userId }) => {
                 <ListItem key={song.id}>
                   <ListItemText
                     primary={song.Track?.name || 'Unknown Track'}
-                    secondary={`${song.Track.Artist.name || 'Unknown Artist'} - ${
-                      song.Track.Album.name || 'Unknown Album'
-                    }`}
+                    secondary={`${song.Track.Artist.name || 'Unknown Artist'} - ${song.Track.Album.name || 'Unknown Album'
+                      }`}
                   />
                 </ListItem>
               ))}
@@ -56,6 +56,7 @@ const HistoryModal = ({ open, onClose, userId }) => {
           )}
         </DialogContent>
         <DialogActions>
+          <ExportPlaylistButton userId={userId} />
           <Button onClick={onClose}>Close</Button>
         </DialogActions>
       </Dialog>

@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 
 const HistoryButton = ({ onClick }) => {
   return (
-    <div className='history-button'>
+    <div className='history-button' style={{
+      alignSelf: 'self-end', marginBottom: '0.5em', marginRight: '0.5em'
+    }}>
       <Button
         onClick={onClick}
         variant='contained'
@@ -19,7 +21,7 @@ const HistoryButton = ({ onClick }) => {
       >
         History
       </Button>
-    </div>
+    </div >
   );
 };
 
