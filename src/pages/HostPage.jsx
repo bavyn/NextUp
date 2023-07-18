@@ -13,6 +13,7 @@ import { Button } from '@mui/material';
 import PartyModal from '../components/PartyModal';
 import HistoryButton from '../components/HistoryButton';
 import HistoryModal from '../components/HistoryModal';
+import ExportButton from '../components/ExportPlaylistButton';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -236,6 +237,7 @@ const HostPage = () => {
           value={`https://nextup.rocks/event/${userId}`}
           userId={userId}
         />
+        <ExportButton userId={userId} />
       </section>
       <ScrollToTopButton />
       <footer className='footer'>
