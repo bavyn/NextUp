@@ -7,7 +7,7 @@ const ExportButton = ({ userId }) => {
   // THIS DOES NOT WORK YET
   const exportPlaylist = async () => {
     try {
-      const response = await axios.get(`https://api.nextup.rocks/events/${userId}/export`);
+      const response = await axios.post(`https://api.nextup.rocks/events/${userId}/export`);
       console.log(response.data);
     } catch (error) {
       console.error('There has been a problem with your fetch operation:', error);
