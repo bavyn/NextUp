@@ -38,7 +38,7 @@ const NowPlaying = ({
       <h2>
         Now Playing
         <div className='now-playing-animation'>
-          <Lottie animationData={musicAnimation} isPaused={false} />
+          <Lottie animationData={musicAnimation} />
         </div>
       </h2>
       <div className='now-playing-song-details'>
