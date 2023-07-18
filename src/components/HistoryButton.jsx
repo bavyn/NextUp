@@ -5,7 +5,18 @@ import PropTypes from 'prop-types';
 const HistoryButton = ({ onClick }) => {
   return (
     <div className='history-button'>
-      <Button variant='contained' onClick={onClick}>
+      <Button
+        onClick={onClick}
+        variant='contained'
+        sx={{
+          backgroundColor: 'black',
+          color: 'white',
+          '&:hover': {
+            backgroundColor: 'white',
+            color: 'black',
+          },
+        }}
+      >
         History
       </Button>
     </div>
