@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
@@ -8,7 +8,9 @@ import HostPage from './pages/HostPage';
 import UserPage from './pages/UserPage';
 import ErrorPage from './pages/ErrorPage';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -19,7 +21,6 @@ ReactDOM.render(
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root'),
 );
 
 reportWebVitals();
