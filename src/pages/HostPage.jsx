@@ -11,6 +11,8 @@ import SongSearch from '../components/SongSearch';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import { Button } from '@mui/material';
 import PartyModal from '../components/PartyModal';
+import HistoryButton from '../components/HistoryButton';
+import HistoryModal from '../components/HistoryModal';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -24,6 +26,7 @@ const HostPage = () => {
   const [ffColour, setFFColour] = useState('');
   const [qrcodeModalOpen, setQRCodeModalOpen] = useState(false);
   const [partyModalOpen, setPartyModalOpen] = useState(false);
+  const [historyModalOpen, setHistoryModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -154,6 +157,14 @@ const HostPage = () => {
     setPartyModalOpen(false);
   };
 
+  const handleHistoryModalClose = () => {
+    setHistoryModalOpen(false);
+  };
+
+  const handleOpenHistoryModal = () => {
+    setHistoryModalOpen(true);
+  };
+
   const handleStartPartyClick = () => {
     setPartyModalOpen(true);
   };
@@ -217,6 +228,13 @@ const HostPage = () => {
           onDragEnd={onDragEnd}
           handleDeleteClick={handleDeleteClick}
           showControls={showControls}
+        />
+        <HistoryButton onClick={handleOpenHistoryModal} />
+        <HistoryModal
+          open={historyModalOpen}
+          onClose={handleHistoryModalClose}
+          value={`https://nextup.rocks/event/${userId}`}
+          userId={userId}
         />
       </section>
       <ScrollToTopButton />
