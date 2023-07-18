@@ -1,5 +1,13 @@
 import React from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  Box,
+  Typography,
+} from '@mui/material';
 import PropTypes from 'prop-types';
 import '../styles/QRModal.css';
 import QRCodeDisplay from './QRCodeDisplay';
@@ -17,7 +25,11 @@ const QRCodeModal = ({ open, onClose, userId }) => {
     <div className='qrcode-modal'>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>
-          <h4 className='qrcode-modal-header'>Share with friends to get started!</h4>
+          <Box textAlign='center' className='qrcode-modal-header'>
+            <Typography variant='h6'>
+              Share with friends to get started! <br />
+            </Typography>
+          </Box>
         </DialogTitle>
         <div className='qrcode-modal-copy-button'>
           <CopyToClipboardButton link={userPageLink} />
