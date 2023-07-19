@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import SnackbarMessage from './SnackbarMessage';
 
-const ExportButton = ({ userId }) => {
+const ExportPlaylistButton = ({ userId }) => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -42,8 +42,8 @@ const ExportButton = ({ userId }) => {
   );
 };
 
-ExportButton.propTypes = {
+ExportPlaylistButton.propTypes = {
   userId: PropTypes.string.isRequired,
 };
 
-export default ExportButton;
+export default ExportPlaylistButton;
