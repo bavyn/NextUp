@@ -1,6 +1,5 @@
 import { React, useRef, useState, useEffect } from 'react';
 import '../styles/UserNavBar.css';
-import PropTypes from 'prop-types';
 import {
   List,
   TextField,
@@ -174,12 +173,6 @@ const SongSearch = ({ userId, playlist, host }) => {
       </div>
     </div>
   );
-};
-
-SongSearch.propTypes = {
-  userId: PropTypes.string.isRequired,
-  playlist: PropTypes.array.isRequired,
-  host: PropTypes.bool.isRequired,
 };
 
 export default SongSearch;

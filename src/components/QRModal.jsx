@@ -8,7 +8,6 @@ import {
   Box,
   Typography,
 } from '@mui/material';
-import PropTypes from 'prop-types';
 import '../styles/QRModal.css';
 import QRCodeDisplay from './QRCodeDisplay';
 import CopyToClipboardButton from './CopyToClipboardButton';
@@ -44,12 +43,6 @@ const QRCodeModal = ({ open, onClose, userId }) => {
       </Dialog>
     </div>
   );
-};
-
-QRCodeModal.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  userId: PropTypes.string.isRequired,
 };
 
 export default QRCodeModal;

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from '@mui/material';
 import SnackbarMessage from './SnackbarMessage';
 
@@ -20,10 +19,6 @@ const CopyToClipboardButton = ({ link }) => {
       <SnackbarMessage open={open} onClose={handleClose} message='Copied to clipboard' />
     </div>
   );
-};
-
-CopyToClipboardButton.propTypes = {
-  link: PropTypes.string.isRequired,
 };
 
 export default CopyToClipboardButton;
