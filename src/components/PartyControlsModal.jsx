@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
-import { Box, Tab, Tabs, Typography, Dialog, DialogTitle } from '@mui/material';
+import {
+  Box,
+  Tab,
+  Tabs,
+  Typography,
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  Button,
+} from '@mui/material';
 import ExportPlaylistButton from './ExportPlaylistButton';
+import HistoryTab from './HistoryTab';
 
 function PartyControlsModal({ open, onClose, userId }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -26,7 +36,13 @@ function PartyControlsModal({ open, onClose, userId }) {
         </Tabs>
         <Box>
           {activeTab === 0 && <Typography>Content for Tab 1</Typography>}
-          {activeTab === 1 && <Typography>Content for Tab 2</Typography>}
+          {activeTab === 1 && (
+            <>
+              <Typography>
+                <HistoryTab />
+              </Typography>
+            </>
+          )}
           {activeTab === 2 && (
             <>
               <Typography>
@@ -37,6 +53,9 @@ function PartyControlsModal({ open, onClose, userId }) {
           )}
         </Box>
       </Box>
+      <DialogActions>
+        <Button onClick={onClose}>Close</Button>
+      </DialogActions>
     </Dialog>
   );
 }
