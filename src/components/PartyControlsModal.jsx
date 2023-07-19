@@ -43,9 +43,9 @@ function PartyControlsModal({ open, onClose, userId, value, playlist }) {
       </DialogTitle>
       <Box>
         <Tabs value={activeTab} onChange={handleChangeTab} centered>
-          <Tab label='Start the Party' />
-          <Tab label='View Song History' />
-          <Tab label='Export Playlist' />
+          <Tab className='party-tabs' label='Start Party' />
+          <Tab className='party-tabs' label='View History' />
+          <Tab className='party-tabs' label='Export Playlist' />
         </Tabs>
         <Box>
           {activeTab === 0 && (

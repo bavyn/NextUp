@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DialogContent, DialogActions, Typography, Box, Select, MenuItem } from '@mui/material';
 import StartPartyButton from './StartPartyButton';
 import axios from 'axios';
+import '../styles/StartPartyTab.css';
 
 const StartPartyTab = ({ userId, playlist }) => {
   const [devices, setDevices] = useState([]);
@@ -25,7 +26,7 @@ const StartPartyTab = ({ userId, playlist }) => {
     <div className='start-party-tab'>
       <DialogContent>
         <Typography>Please pick from the below clients associated with your account:</Typography>
-        <Box display='flex' justifyContent='center'>
+        <Box className='start-party-box'>
           <Select value={selectedDevice} onChange={handleDeviceChange}>
             {devices.map((device) => (
               <MenuItem key={device.id} value={device.id}>
@@ -36,7 +37,7 @@ const StartPartyTab = ({ userId, playlist }) => {
         </Box>
       </DialogContent>
 
-      <DialogActions sx={{ justifyContent: 'center', position: 'relative' }}>
+      <DialogActions>
         <StartPartyButton userId={userId} playlist={playlist} selectedDevice={selectedDevice} />
       </DialogActions>
     </div>
