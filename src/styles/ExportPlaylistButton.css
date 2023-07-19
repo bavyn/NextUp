@@ -1,0 +1,13 @@
+/* Add this to your ExportPlaylistButton.css */
+.export-playlist-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.export-button {
+  display: flex;
+  justify-content: center;
+}

@@ -1,49 +1,19 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import PropTypes from 'prop-types';
-import axios from 'axios';
-import SnackbarMessage from './SnackbarMessage';
+import React from 'react';
+import { DialogContent, DialogActions, Typography } from '@mui/material';
+import '../styles/ExportPlaylistButton.css';
+import ExportButton from './ExportButton';
 
 const ExportPlaylistButton = ({ userId }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const exportPlaylist = async () => {
-    try {
-      const response = await axios.post(`https://api.nextup.rocks/events/${userId}/export`);
-      console.log(response.data);
-      setOpen(true);
-    } catch (error) {
-      console.error('There has been a problem with your fetch operation:', error);
-    }
-  };
-
   return (
-    <div className='export-playlist-button'>
-      <Button
-        onClick={exportPlaylist}
-        variant='contained'
-        sx={{
-          backgroundColor: 'black',
-          color: 'white',
-          '&:hover': {
-            backgroundColor: 'white',
-            color: 'black',
-          },
-        }}
-      >
-        Export Playlist to Spotify
-      </Button>
-      <SnackbarMessage open={open} onClose={handleClose} message='Playlist successfully exported' />
+    <div className='export-playlist-tab'>
+      <DialogContent>
+        <Typography>Export your playlist to Spotify to save the songs from your event!</Typography>
+      </DialogContent>
+      <DialogActions sx={{ justifyContent: 'center', position: 'relative' }}>
+        <ExportButton userId={userId} />
+      </DialogActions>
     </div>
   );
-};
-
-ExportPlaylistButton.propTypes = {
-  userId: PropTypes.string.isRequired,
 };
 
 export default ExportPlaylistButton;
