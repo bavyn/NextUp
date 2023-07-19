@@ -201,6 +201,7 @@ const HostPage = () => {
         onClose={handlePartyModalClose}
         value={`https://nextup.rocks/event/${userId}`}
         userId={userId}
+        playlist={playlist}
       />
       <section className='host-page-content'>
         <div className='host-page-start-party'>

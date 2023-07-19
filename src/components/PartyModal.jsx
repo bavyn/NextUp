@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  Typography,
-  Box,
-  Select,
-  MenuItem,
-} from '@mui/material';
+import { DialogContent, DialogActions, Typography, Box, Select, MenuItem } from '@mui/material';
 import PropTypes from 'prop-types';
 import StartThePartyButton from '../components/StartThePartyButton';
 import axios from 'axios';
 
-const PartyModal = ({ open, onClose, userId, playlist }) => {
+const PartyModal = ({ userId, playlist }) => {
   const [devices, setDevices] = useState([]);
   const [selectedDevice, setSelectedDevice] = useState('');
 
@@ -33,15 +23,7 @@ const PartyModal = ({ open, onClose, userId, playlist }) => {
   };
 
   return (
-    <Dialog open={open} onClose={onClose}>
-      <DialogTitle>
-        <Box textAlign='center'>
-          <Typography variant='h6'>
-            Start the party!! <br />
-          </Typography>
-        </Box>
-      </DialogTitle>
-
+    <div className='start-party-tab'>
       <DialogContent>
         <Typography>Please pick from the below clients associated with your account:</Typography>
         <Box display='flex' justifyContent='center'>
@@ -57,11 +39,8 @@ const PartyModal = ({ open, onClose, userId, playlist }) => {
 
       <DialogActions sx={{ justifyContent: 'center', position: 'relative' }}>
         <StartThePartyButton userId={userId} playlist={playlist} selectedDevice={selectedDevice} />
-        <Button onClick={onClose} sx={{ position: 'absolute', right: '16px' }}>
-          Close
-        </Button>
       </DialogActions>
-    </Dialog>
+    </div>
   );
 };
 

@@ -13,6 +13,7 @@ import {
 import ExportPlaylistButton from './ExportPlaylistButton';
 import HistoryTab from './HistoryTab';
 import PartyModal from './PartyModal';
+import '../styles/PartyModal.css';
 
 function PartyControlsModal({ open, onClose, userId, value, playlist }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -22,7 +23,18 @@ function PartyControlsModal({ open, onClose, userId, value, playlist }) {
   };
 
   return (
-    <Dialog open={open} onClose={onClose}>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      className='party-control-modal'
+      scroll='paper'
+      sx={{
+        '& .MuiDialog-container': {
+          alignItems: 'flex-start',
+        },
+      }}
+      PaperProps={{ sx: { mt: '50px' } }}
+    >
       <DialogTitle>
         <Box textAlign='center'>
           <Typography variant='h6'>
@@ -47,7 +59,7 @@ function PartyControlsModal({ open, onClose, userId, value, playlist }) {
           {activeTab === 1 && (
             <>
               <Typography>
-                <HistoryTab />
+                <HistoryTab userId={userId} />
               </Typography>
             </>
           )}
