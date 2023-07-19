@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import axios from 'axios';
 import SnackbarMessage from './SnackbarMessage';
-import '../styles/ExportPlaylistButton.css';
 
 const ExportButton = ({ userId }) => {
   const [open, setOpen] = useState(false);

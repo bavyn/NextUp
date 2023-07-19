@@ -9,9 +9,9 @@ import {
   DialogActions,
   Button,
 } from '@mui/material';
-import ExportPlaylistButton from './ExportPlaylistButton';
+import ExportTab from './ExportTab';
 import HistoryTab from './HistoryTab';
-import PartyModal from './PartyModal';
+import StartPartyTab from './StartPartyTab';
 import '../styles/PartyModal.css';
 
 function PartyControlsModal({ open, onClose, userId, value, playlist }) {
@@ -51,7 +51,7 @@ function PartyControlsModal({ open, onClose, userId, value, playlist }) {
           {activeTab === 0 && (
             <>
               <Typography>
-                <PartyModal value={value} playlist={playlist} userId={userId} />
+                <StartPartyTab value={value} playlist={playlist} userId={userId} />
               </Typography>
             </>
           )}
@@ -64,7 +64,7 @@ function PartyControlsModal({ open, onClose, userId, value, playlist }) {
           )}
           {activeTab === 2 && (
             <>
-              <ExportPlaylistButton userId={userId} />
+              <ExportTab userId={userId} />
             </>
           )}
         </Box>

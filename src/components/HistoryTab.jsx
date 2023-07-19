@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { DialogContent, Typography, List, ListItem, ListItemText } from '@mui/material';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const HistoryTab = ({ userId }) => {
@@ -16,7 +15,7 @@ const HistoryTab = ({ userId }) => {
   }, []);
 
   return (
-    <div className='history-modal'>
+    <div className='history-tab'>
       <DialogContent>
         {history.length === 0 ? (
           <Typography>No songs played during the event.</Typography>
@@ -37,12 +36,6 @@ const HistoryTab = ({ userId }) => {
       </DialogContent>
     </div>
   );
-};
-
-HistoryTab.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  userId: PropTypes.string.isRequired,
 };
 
 export default HistoryTab;

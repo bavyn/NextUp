@@ -1,9 +1,9 @@
 import React from 'react';
 import { DialogContent, DialogActions, Typography } from '@mui/material';
-import '../styles/ExportPlaylistButton.css';
+import '../styles/ExportTab.css';
 import ExportButton from './ExportButton';
 
-const ExportPlaylistButton = ({ userId }) => {
+const ExportTab = ({ userId }) => {
   return (
     <div className='export-playlist-tab'>
       <DialogContent>
@@ -16,4 +16,4 @@ const ExportPlaylistButton = ({ userId }) => {
   );
 };
 
-export default ExportPlaylistButton;
+export default ExportTab;

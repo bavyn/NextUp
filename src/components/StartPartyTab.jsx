@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { DialogContent, DialogActions, Typography, Box, Select, MenuItem } from '@mui/material';
-import PropTypes from 'prop-types';
-import StartThePartyButton from '../components/StartThePartyButton';
+import StartPartyButton from './StartPartyButton';
 import axios from 'axios';
 
-const PartyModal = ({ userId, playlist }) => {
+const StartPartyTab = ({ userId, playlist }) => {
   const [devices, setDevices] = useState([]);
   const [selectedDevice, setSelectedDevice] = useState('');
 
@@ -38,17 +37,10 @@ const PartyModal = ({ userId, playlist }) => {
       </DialogContent>
 
       <DialogActions sx={{ justifyContent: 'center', position: 'relative' }}>
-        <StartThePartyButton userId={userId} playlist={playlist} selectedDevice={selectedDevice} />
+        <StartPartyButton userId={userId} playlist={playlist} selectedDevice={selectedDevice} />
       </DialogActions>
     </div>
   );
 };
 
-PartyModal.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  userId: PropTypes.string.isRequired,
-  playlist: PropTypes.array.isRequired,
-};
-
-export default PartyModal;
+export default StartPartyTab;
