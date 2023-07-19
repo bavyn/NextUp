@@ -1,18 +1,10 @@
 import React from 'react';
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import PropTypes from 'prop-types';
 import '../styles/Playlist.css';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const Playlist = ({ playlist, handleDeleteClick, showControls, onDragEnd }) => {
-  Playlist.propTypes = {
-    playlist: PropTypes.array.isRequired,
-    handleDeleteClick: PropTypes.func.isRequired,
-    showControls: PropTypes.bool.isRequired,
-    onDragEnd: PropTypes.func.isRequired,
-  };
-
   return (
     <div className={`playlist ${showControls ? 'show-controls' : ''}`}>
       <h2 className='playlist-header'>Song Queue</h2>

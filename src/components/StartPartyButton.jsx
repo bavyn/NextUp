@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Snackbar, SnackbarContent } from '@mui/material';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 
-const StartThePartyButton = ({ userId, playlist, selectedDevice }) => {
+const StartPartyButton = ({ userId, playlist, selectedDevice }) => {
   const [open, setOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('Party has started');
   const [toastColour, setToastColour] = useState('green');
@@ -43,12 +42,6 @@ const StartThePartyButton = ({ userId, playlist, selectedDevice }) => {
     }
   };
 
-  StartThePartyButton.propTypes = {
-    userId: PropTypes.string.isRequired,
-    playlist: PropTypes.array.isRequired,
-    selectedDevice: PropTypes.string.isRequired,
-  };
-
   return (
     <div>
       <Button
@@ -82,4 +75,4 @@ const StartThePartyButton = ({ userId, playlist, selectedDevice }) => {
   );
 };
 
-export default StartThePartyButton;
+export default StartPartyButton;

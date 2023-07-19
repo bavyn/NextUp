@@ -1,7 +1,6 @@
 import React from 'react';
 import QRCode from 'qrcode.react';
 import { Box, Card, CardContent, Typography } from '@mui/material';
-import PropTypes from 'prop-types';
 
 const QRCodeDisplay = ({ value, canvasId }) => {
   return (
@@ -23,11 +22,6 @@ const QRCodeDisplay = ({ value, canvasId }) => {
       </Card>
     </Box>
   );
-};
-
-QRCodeDisplay.propTypes = {
-  value: PropTypes.string.isRequired,
-  canvasId: PropTypes.string.isRequired,
 };
 
 export default QRCodeDisplay;

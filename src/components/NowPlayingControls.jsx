@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ListItemAvatar, Avatar } from '@mui/material';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
@@ -13,14 +12,6 @@ const NowPlayingControls = ({
   handlePauseClick,
   handleFFClick,
 }) => {
-  NowPlayingControls.propTypes = {
-    playColour: PropTypes.string.isRequired,
-    pauseColour: PropTypes.string.isRequired,
-    ffColour: PropTypes.string.isRequired,
-    handlePlayClick: PropTypes.func.isRequired,
-    handlePauseClick: PropTypes.func.isRequired,
-    handleFFClick: PropTypes.func.isRequired,
-  };
   return (
     <div className='now-playing-controls'>
       <ListItemAvatar>
