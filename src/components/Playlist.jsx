@@ -21,16 +21,12 @@ const Playlist = ({ playlist, handleDeleteClick, showControls, onDragEnd }) => {
           <Droppable droppableId='droppable'>
             {(provided) => (
               <List {...provided.droppableProps} ref={provided.innerRef}>
-                {playlist.map((item) => {
+                {playlist.map((item, index) => {
                   const track = item?.Track;
                   const artist = track?.Artist?.name;
                   const album = track?.Album?.name;
                   return (
-                    <Draggable
-                      key={item.id}
-                      draggableId={item.id.toString()}
-                      index={track.position}
-                    >
+                    <Draggable key={item.id} draggableId={item.id.toString()} index={index}>
                       {(provided) => (
                         <ListItem
                           ref={provided.innerRef}
