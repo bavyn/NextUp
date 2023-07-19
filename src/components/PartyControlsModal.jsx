@@ -8,11 +8,13 @@ import {
   DialogTitle,
   DialogActions,
   Button,
+  DialogContent,
 } from '@mui/material';
 import ExportPlaylistButton from './ExportPlaylistButton';
 import HistoryTab from './HistoryTab';
+import PartyModal from './PartyModal';
 
-function PartyControlsModal({ open, onClose, userId }) {
+function PartyControlsModal({ open, onClose, userId, value, playlist }) {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleChangeTab = (event, newValue) => {
@@ -35,7 +37,13 @@ function PartyControlsModal({ open, onClose, userId }) {
           <Tab label='Export Playlist' />
         </Tabs>
         <Box>
-          {activeTab === 0 && <Typography>Content for Tab 1</Typography>}
+          {activeTab === 0 && (
+            <>
+              <Typography>
+                <PartyModal value={value} playlist={playlist} userId={userId} />
+              </Typography>
+            </>
+          )}
           {activeTab === 1 && (
             <>
               <Typography>
@@ -45,10 +53,12 @@ function PartyControlsModal({ open, onClose, userId }) {
           )}
           {activeTab === 2 && (
             <>
-              <Typography>
-                Export your playlist to Spotify to save the songs from your event!
-              </Typography>
-              <ExportPlaylistButton userId={userId} />
+              <DialogContent>
+                <Typography>
+                  Export your playlist to Spotify to save the songs from your event!
+                </Typography>
+                <ExportPlaylistButton userId={userId} />
+              </DialogContent>
             </>
           )}
         </Box>
