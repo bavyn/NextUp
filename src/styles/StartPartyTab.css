@@ -1,0 +1,13 @@
+.start-party-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.start-party-box {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}

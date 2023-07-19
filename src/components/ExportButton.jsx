@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import PropTypes from 'prop-types';
+import { Button } from '@mui/material';
 import axios from 'axios';
 import SnackbarMessage from './SnackbarMessage';
 
@@ -22,7 +21,7 @@ const ExportButton = ({ userId }) => {
   };
 
   return (
-    <div className='export-playlist-button'>
+    <div className='export-button'>
       <Button
         onClick={exportPlaylist}
         variant='contained'
@@ -35,15 +34,11 @@ const ExportButton = ({ userId }) => {
           },
         }}
       >
-        Export Playlist to Spotify
+        Export
       </Button>
       <SnackbarMessage open={open} onClose={handleClose} message='Playlist successfully exported' />
     </div>
   );
-};
-
-ExportButton.propTypes = {
-  userId: PropTypes.string.isRequired,
 };
 
 export default ExportButton;

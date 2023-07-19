@@ -10,9 +10,10 @@ import SongSearch from '../components/SongSearch';
 // import StartThePartyButton from '../components/StartThePartyButton';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import { Button } from '@mui/material';
-import PartyModal from '../components/PartyModal';
-import HistoryButton from '../components/HistoryButton';
-import HistoryModal from '../components/HistoryModal';
+// import PartyModal from '../components/PartyModal';
+// import HistoryButton from '../components/HistoryButton';
+// import HistoryModal from '../components/HistoryModal';
+import PartyControlsModal from '../components/PartyControlsModal';
 // import ExportButton from '../components/ExportPlaylistButton';
 
 const HostPage = () => {
@@ -27,7 +28,7 @@ const HostPage = () => {
   const [ffColour, setFFColour] = useState('');
   const [qrcodeModalOpen, setQRCodeModalOpen] = useState(false);
   const [partyModalOpen, setPartyModalOpen] = useState(false);
-  const [historyModalOpen, setHistoryModalOpen] = useState(false);
+  // const [historyModalOpen, setHistoryModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -158,15 +159,19 @@ const HostPage = () => {
     setPartyModalOpen(false);
   };
 
-  const handleHistoryModalClose = () => {
-    setHistoryModalOpen(false);
-  };
+  // const handleHistoryModalClose = () => {
+  //   setHistoryModalOpen(false);
+  // };
 
-  const handleOpenHistoryModal = () => {
-    setHistoryModalOpen(true);
-  };
+  // const handleOpenHistoryModal = () => {
+  //   setHistoryModalOpen(true);
+  // };
 
-  const handleStartPartyClick = () => {
+  // const handleStartPartyClick = () => {
+  //   setPartyModalOpen(true);
+  // };
+
+  const handleOpenPartyControlsModal = () => {
     setPartyModalOpen(true);
   };
 
@@ -184,17 +189,24 @@ const HostPage = () => {
         value={`https://nextup.rocks/event/${userId}`}
         userId={userId}
       />
-      <PartyModal
+      {/* <PartyModal
         open={partyModalOpen}
         onClose={handlePartyModalClose}
         value={`https://nextup.rocks/event/${userId}`}
         playlist={playlist}
         userId={userId}
+      /> */}
+      <PartyControlsModal
+        open={partyModalOpen}
+        onClose={handlePartyModalClose}
+        value={`https://nextup.rocks/event/${userId}`}
+        userId={userId}
+        playlist={playlist}
       />
       <section className='host-page-content'>
         <div className='host-page-start-party'>
           {/* <StartThePartyButton userId={userId} playlist={playlist} /> */}
-          <Button
+          {/* <Button
             variant='contained'
             disabled={playlist.length === 0}
             sx={{
@@ -208,6 +220,20 @@ const HostPage = () => {
             onClick={handleStartPartyClick}
           >
             Start the party
+          </Button> */}
+          <Button
+            onClick={handleOpenPartyControlsModal}
+            variant='contained'
+            sx={{
+              backgroundColor: 'black',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'white',
+                color: 'black',
+              },
+            }}
+          >
+            Party Controls
           </Button>
         </div>
         <SongSearch userId={userId} playlist={playlist} host={true} />
@@ -230,13 +256,13 @@ const HostPage = () => {
           handleDeleteClick={handleDeleteClick}
           showControls={showControls}
         />
-        <HistoryButton onClick={handleOpenHistoryModal} />
+        {/* <HistoryButton onClick={handleOpenHistoryModal} />
         <HistoryModal
           open={historyModalOpen}
           onClose={handleHistoryModalClose}
           value={`https://nextup.rocks/event/${userId}`}
           userId={userId}
-        />
+        /> */}
         {/* <ExportButton userId={userId} /> */}
       </section>
       <ScrollToTopButton />
