@@ -3,21 +3,30 @@
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  padding: 17px 0 10px 20px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 30px;
-  text-align: center;
+.user-animation {
+  width: 150px;
+  height: 120px;
+  margin-left: 10px;
 }
 
 @media (max-width: 768px) {
+  .user-nav-bar img {
+    width: 80px;
+    height: 80px;
+    margin-top: 0.5em;
+    margin-left: -0.7em;
+  }
+
   h1 {
     font-size: 25px;
     text-align: center;
   }
   
   .user-animation {
-    font-size: medium;
+    width: 120px;
+    height: 80px;
   }
 }
