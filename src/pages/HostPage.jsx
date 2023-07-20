@@ -7,14 +7,9 @@ import Playlist from '../components/Playlist';
 import HostNavBar from '../components/HostNavBar';
 import QRCodeModal from '../components/QRModal';
 import SongSearch from '../components/SongSearch';
-// import StartThePartyButton from '../components/StartThePartyButton';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import { Button } from '@mui/material';
-// import PartyModal from '../components/PartyModal';
-// import HistoryButton from '../components/HistoryButton';
-// import HistoryModal from '../components/HistoryModal';
 import PartyControlsModal from '../components/PartyControlsModal';
-// import ExportButton from '../components/ExportPlaylistButton';
 
 const HostPage = () => {
   const { userId } = useParams();
@@ -28,7 +23,6 @@ const HostPage = () => {
   const [ffColour, setFFColour] = useState('');
   const [qrcodeModalOpen, setQRCodeModalOpen] = useState(false);
   const [partyModalOpen, setPartyModalOpen] = useState(false);
-  // const [historyModalOpen, setHistoryModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -159,18 +153,6 @@ const HostPage = () => {
     setPartyModalOpen(false);
   };
 
-  // const handleHistoryModalClose = () => {
-  //   setHistoryModalOpen(false);
-  // };
-
-  // const handleOpenHistoryModal = () => {
-  //   setHistoryModalOpen(true);
-  // };
-
-  // const handleStartPartyClick = () => {
-  //   setPartyModalOpen(true);
-  // };
-
   const handleOpenPartyControlsModal = () => {
     setPartyModalOpen(true);
   };
@@ -189,13 +171,6 @@ const HostPage = () => {
         value={`https://nextup.rocks/event/${userId}`}
         userId={userId}
       />
-      {/* <PartyModal
-        open={partyModalOpen}
-        onClose={handlePartyModalClose}
-        value={`https://nextup.rocks/event/${userId}`}
-        playlist={playlist}
-        userId={userId}
-      /> */}
       <PartyControlsModal
         open={partyModalOpen}
         onClose={handlePartyModalClose}
@@ -205,22 +180,6 @@ const HostPage = () => {
       />
       <section className='host-page-content'>
         <div className='host-page-start-party'>
-          {/* <StartThePartyButton userId={userId} playlist={playlist} /> */}
-          {/* <Button
-            variant='contained'
-            disabled={playlist.length === 0}
-            sx={{
-              backgroundColor: 'black',
-              color: 'white',
-              '&:hover': {
-                backgroundColor: playlist.length === 0 ? 'black' : 'white',
-                color: playlist.length === 0 ? 'white' : 'black',
-              },
-            }}
-            onClick={handleStartPartyClick}
-          >
-            Start the party
-          </Button> */}
           <Button
             onClick={handleOpenPartyControlsModal}
             variant='contained'
@@ -256,14 +215,6 @@ const HostPage = () => {
           handleDeleteClick={handleDeleteClick}
           showControls={showControls}
         />
-        {/* <HistoryButton onClick={handleOpenHistoryModal} />
-        <HistoryModal
-          open={historyModalOpen}
-          onClose={handleHistoryModalClose}
-          value={`https://nextup.rocks/event/${userId}`}
-          userId={userId}
-        /> */}
-        {/* <ExportButton userId={userId} /> */}
       </section>
       <ScrollToTopButton />
       <footer className='footer'>
