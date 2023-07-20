@@ -10,10 +10,7 @@ const UserNavBar = () => {
       <img src={logo} className='logo' alt='logo' />
 
       <div className='user-animation'>
-        <Lottie
-          animationData={partyAnimation}
-          style={{ width: '150px', height: '160px', marginLeft: '10px' }} // You forgot to mention the height
-        />
+        <Lottie animationData={partyAnimation} />
       </div>
     </nav>
   );
